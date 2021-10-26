@@ -2,14 +2,13 @@
 
 namespace TransportEnterprise.Models
 {
-    public abstract class TruckTractor
+    public abstract class TruckTractor : BaseDomainModel
     {
         public TruckTractor(int id, Semitrailer<Product> semitrailer)
         {
             Semitrailer = semitrailer ?? throw new ArgumentNullException(nameof(semitrailer), "Semitrailer cannot be null");
             Id = id;
         }
-        public int Id { get; init; }
         public Semitrailer<Product> Semitrailer { get; protected set; }
         public decimal LoadCapacity => Semitrailer.LoadCapacity;
         public abstract decimal PetrolPerHour { get; }

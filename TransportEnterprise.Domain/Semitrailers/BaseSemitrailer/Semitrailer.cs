@@ -4,7 +4,8 @@ using TransportEnterprise.Core.Exceptions;
 
 namespace TransportEnterprise.Models
 {
-    public abstract class Semitrailer<T> where T : Product
+    [Serializable]
+    public abstract class Semitrailer<T> : BaseDomainModel where T : Product
     {
         public Semitrailer(int id, decimal maxLoadWeight)
         {
@@ -12,7 +13,6 @@ namespace TransportEnterprise.Models
             Products = new List<T>();
             Id = id;
         }
-        public int Id { get; init; }
         public decimal LoadCapacity { get; init; }
         public decimal CurrentLoading { get; protected set; }
         protected ICollection<T> Products { get; set; }

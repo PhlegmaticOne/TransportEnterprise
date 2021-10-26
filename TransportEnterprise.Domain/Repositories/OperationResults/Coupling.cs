@@ -2,6 +2,7 @@
 
 namespace TransportEnterprise.Models
 {
+    [Serializable]
     public class Coupling
     {
         public Coupling(Semitrailer<Product> semitrailer, TruckTractor truckTractor)

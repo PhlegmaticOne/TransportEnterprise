@@ -1,5 +1,8 @@
-﻿namespace TransportEnterprise.Models
+﻿using System;
+
+namespace TransportEnterprise.Models
 {
+    [Serializable]
     public enum ChemistryDanger
     {
         Benign,

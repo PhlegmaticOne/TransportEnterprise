@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace TransportEnterprise.Models
 {
+    [Serializable]
     public class PetrolA92 : Petrol
     {
         public PetrolA92(int id, decimal weight, ICollection<ChemistryDanger> chemistryDangers, string description) :

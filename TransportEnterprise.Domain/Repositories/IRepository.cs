@@ -1,14 +1,12 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace TransportEnterprise.Models.Repositories
 {
-    public interface IRepository<T> where T : class
+    public interface IRepository<T> where T : BaseDomainModel
     {
-        Task<bool> AddAsync(T entity);
-        Task<T> LoadAsync(int id);
-        Task<ICollection<T>> LoadAllAsync();
-        Task SaveAsync();
-        Task UpdateAsync(int id, T newEntity);
+        void Add(T entity);
+        LoadingResult<T> Load(int id);
+        ICollection<T> LoadAll();
+        void Update(int id, T newEntity);
     }
 }

@@ -1,8 +1,10 @@
-﻿using TransportEnterprise.Core.Exceptions;
+﻿using System;
+using TransportEnterprise.Core.Exceptions;
 
 namespace TransportEnterprise.Models
 {
-    public abstract class Product
+    [Serializable]
+    public abstract class Product : BaseDomainModel
     {
         public Product(int id, decimal weight, string description)
         {
@@ -10,7 +12,6 @@ namespace TransportEnterprise.Models
             Description = description;
             Id = id;
         }
-        public int Id { get; init; }
         public decimal Weight { get; }
         public string Description { get; set; }
     }
