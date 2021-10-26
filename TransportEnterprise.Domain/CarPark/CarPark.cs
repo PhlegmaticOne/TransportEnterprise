@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace TransportEnterprise.Models
 {
@@ -16,7 +17,7 @@ namespace TransportEnterprise.Models
         }
         public void Add(Semitrailer<Product> semitrailer)
         {
-            if(semitrailer is not null)
+            if (semitrailer is not null)
             {
                 _semitrailers.Add(semitrailer);
             }
@@ -28,5 +29,12 @@ namespace TransportEnterprise.Models
                 _trackTractors.Add(truckTractor);
             }
         }
+
+        public override bool Equals(object obj) => obj is CarPark carPark &&
+                                                   _semitrailers.AllEquals((s, i) => s.Equals(carPark._semitrailers.ElementAt(i))) &&
+                                                   _trackTractors.AllEquals((t, i) => t.Equals(carPark._trackTractors.ElementAt(i)));
+        public override int GetHashCode() => Id;
+        public override string ToString() => 
+            string.Format("Car Park №{0}. Total semitrailers: {1}. Total track tractors: {2}", Id, _semitrailers.Count, _trackTractors.Count);
     }
 }

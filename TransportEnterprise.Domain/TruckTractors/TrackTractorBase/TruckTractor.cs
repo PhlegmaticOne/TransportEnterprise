@@ -2,7 +2,7 @@
 
 namespace TransportEnterprise.Models
 {
-    public abstract class TruckTractor : BaseDomainModel
+    public abstract class TruckTractor : BaseDomainModel, IEquatable<TruckTractor>
     {
         public TruckTractor(int id, Semitrailer<Product> semitrailer)
         {
@@ -18,6 +18,13 @@ namespace TransportEnterprise.Models
             {
                 Semitrailer = newSemitrailer;
             }
+        }
+        public bool Equals(TruckTractor other) => Semitrailer.Equals(other.Semitrailer) && PetrolPerHour == other.PetrolPerHour;
+        public override bool Equals(object obj) => Equals(obj as TruckTractor);
+        public override int GetHashCode() => (int)(PetrolPerHour + LoadCapacity);
+        public override string ToString()
+        {
+            return string.Format("Semitrailer: {0}. Petrol consumption: {1:f4} l/h.", Semitrailer.ToString(), PetrolPerHour);
         }
     }
 }
