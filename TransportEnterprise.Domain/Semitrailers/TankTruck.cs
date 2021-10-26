@@ -2,6 +2,6 @@
 {
     public class TankTruck<T> : Semitrailer<T> where T : Chemistry, new()
     {
-        public TankTruck(decimal maxLoadWeight) : base(maxLoadWeight) { }
+        public TankTruck(int id, decimal maxLoadWeight) : base(id, maxLoadWeight) { }
     }
 }

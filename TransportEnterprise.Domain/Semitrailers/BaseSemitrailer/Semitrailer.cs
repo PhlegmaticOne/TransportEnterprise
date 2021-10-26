@@ -6,11 +6,13 @@ namespace TransportEnterprise.Models
 {
     public abstract class Semitrailer<T> where T : Product
     {
-        public Semitrailer(decimal maxLoadWeight)
+        public Semitrailer(int id, decimal maxLoadWeight)
         {
             LoadCapacity = maxLoadWeight > 0 ? maxLoadWeight : throw new WeightException("Load capacity cannot be less or equal to zero", maxLoadWeight);
             Products = new List<T>();
+            Id = id;
         }
+        public int Id { get; init; }
         public decimal LoadCapacity { get; init; }
         public decimal CurrentLoading { get; protected set; }
         protected ICollection<T> Products { get; set; }

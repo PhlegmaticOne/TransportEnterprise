@@ -4,13 +4,12 @@ namespace TransportEnterprise.Models
 {
     public class Diesel : Petrol
     {
-        public Diesel(decimal weight, string description) :
-            base(weight, description)
+        public Diesel(int id, decimal weight, ICollection<ChemistryDanger> chemistryDangers, string description = "Diesel petrol")
+            : base(id, weight, chemistryDangers, description)
         {
         }
-
-        public Diesel(decimal weight, ICollection<ChemistryDanger> chemistryDangers, string description = "Diesel petrol")
-            : base(weight, chemistryDangers, description)
+        protected Diesel(int id, decimal weight, string description) :
+            base(id, weight, description)
         {
         }
     }

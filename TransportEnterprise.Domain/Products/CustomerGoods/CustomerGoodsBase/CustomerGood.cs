@@ -2,7 +2,7 @@
 {
     public abstract class CustomerGood : Product
     {
-        protected CustomerGood(decimal weight, string description) : base(weight, description)
+        public CustomerGood(int id, decimal weight, string description) : base(id, weight, description)
         {
         }
     }

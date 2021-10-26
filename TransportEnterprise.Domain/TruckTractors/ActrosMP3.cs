@@ -2,7 +2,7 @@
 {
     public class ActrosMP3 : TruckTractor
     {
-        public ActrosMP3(Semitrailer<Product> semitrailer) : base(semitrailer)
+        public ActrosMP3(int id, Semitrailer<Product> semitrailer) : base(id, semitrailer)
         {
         }
 

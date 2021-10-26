@@ -4,13 +4,12 @@ namespace TransportEnterprise.Models
 {
     public class PetrolA98 : Petrol
     {
-        public PetrolA98(decimal weight, string description) :
-            base(weight, description)
+        public PetrolA98(int id, decimal weight, ICollection<ChemistryDanger> chemistryDangers, string description = "Petrol A98") :
+            base(id, weight, chemistryDangers, description)
         {
         }
-
-        public PetrolA98(decimal weight, ICollection<ChemistryDanger> chemistryDangers, string description = "Petrol A98") :
-            base(weight, chemistryDangers, description)
+        protected PetrolA98(int id, decimal weight, string description) :
+            base(id, weight, description)
         {
         }
     }
