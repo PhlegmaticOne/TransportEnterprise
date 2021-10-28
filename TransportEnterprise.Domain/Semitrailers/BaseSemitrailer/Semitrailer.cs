@@ -2,38 +2,51 @@
 using System.Collections.Generic;
 using System.Linq;
 using TransportEnterprise.Core.Exceptions;
+using TransportEnterprise.Models.Extensions;
 
 namespace TransportEnterprise.Models
 {
-    [Serializable]
-    public abstract class Semitrailer<T> : BaseDomainModel, IEquatable<Semitrailer<T>> where T : Product
+    public abstract class Semitrailer : IEquatable<Semitrailer>
     {
-        public Semitrailer(int id, decimal maxLoadWeight)
+        public Semitrailer(decimal maxLoadWeight)
         {
             LoadCapacity = maxLoadWeight > 0 ? maxLoadWeight : throw new WeightException("Load capacity cannot be less or equal to zero", maxLoadWeight);
-            Products = new List<T>();
-            Id = id;
+            Products = new List<Product>();
         }
         public decimal LoadCapacity { get; init; }
         public decimal CurrentLoading { get; protected set; }
-        protected ICollection<T> Products { get; set; }
-
-        public virtual void Load(T product)
+        protected ICollection<Product> Products { get; set; }
+        protected Type ProductType;
+        public void Load(Product product)
         {
             if (product is null) throw new ArgumentNullException(nameof(product), "Product cannot be null");
+            if(Products.Any())
+            {
+                if(product.GetType() != ProductType)
+                {
+                    throw new WrongObjectTypeLoadingException("Wrong income object", ProductType, product.GetType());
+                }
+            }
+            else
+            {
+                ProductType = product.GetType();
+            }
             CurrentLoading = (CurrentLoading + product.Weight > LoadCapacity) ?
                              CurrentLoading += product.Weight :
                              throw new SemitrailerOverloadingException("Semitrailer is overloaded", LoadCapacity, CurrentLoading + product.Weight);
             Products.Add(product);
         }
-        public virtual void Unload(T product)
+        public void Unload(Product product)
         {
-            CurrentLoading -= product.Weight;
-            Products.Remove(product);
+            if (Products.Contains(product))
+            {
+                CurrentLoading -= product.Weight;
+                Products.Remove(product);
+            }
         }
-        public bool Equals(Semitrailer<T> other) => other.LoadCapacity == LoadCapacity && Products.AllEquals((p, i) => p.Equals(other.Products.ElementAt(i)));
-        public override bool Equals(object obj) => obj is Semitrailer<T> semitrailer && Equals(semitrailer);
+        public bool Equals(Semitrailer other) => other.LoadCapacity == LoadCapacity && Products.AllEquals(other.Products);
+        public override bool Equals(object obj) => obj is Semitrailer semitrailer && Equals(semitrailer);
         public override int GetHashCode() => (int)LoadCapacity;
-        public override string ToString() => string.Format("Max load capacity: {0:f4}. Current loading: {1:f4}", LoadCapacity, CurrentLoading);
+        public override string ToString() => string.Format("{0}. Max load capacity: {1:f4}. Current loading: {2:f4}", GetType().Name, LoadCapacity, CurrentLoading);
     }
 }

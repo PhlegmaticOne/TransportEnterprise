@@ -1,17 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using TransportEnterprise.Models.Interfaces;
 
 namespace TransportEnterprise.Models
 {
-    public class Methylamine : Chemistry, ITempereratureDependent, IEquatable<Methylamine>
+    public class Methylamine : Chemistry, ITempereratureDependent
     {
-        public Methylamine(int id, decimal weight, ICollection<ChemistryDanger> chemistryDangers, string description = "Methylamine") :
-                           base(id, weight, chemistryDangers, description) { }
+        public Methylamine(decimal weight, ICollection<ChemistryDanger> chemistryDangers, string description = "Methylamine") :
+                           base(weight, chemistryDangers, description) { }
 
-        public TemperatureRule GetTemperatureRule() => new(-90, 8);
-        public bool Equals(Methylamine other) => base.Equals(other);
-        public override bool Equals(object obj) => obj is Methylamine product && Equals(product);
-        public override int GetHashCode() => base.GetHashCode();
-        public override string ToString() => string.Format("Methylamine. {0}", base.ToString());
+        public Methylamine(decimal weight, ICollection<ChemistryDanger> chemistryDangers, TemperatureRule temperatureRule, string description = "Methylamine") :
+                           base(weight, chemistryDangers, description)
+        {
+            TemperatureRule = temperatureRule;
+        }
+
+        public TemperatureRule TemperatureRule { get; }
     }
 }

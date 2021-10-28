@@ -1,14 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Xml;
 
 namespace TransportEnterprise.Models
 {
-    [Serializable]
     public abstract class CustomerGood : Product, IEquatable<CustomerGood>
     {
-        public CustomerGood(int id, decimal weight, string description) : base(id, weight, description)
+        public CustomerGood(decimal weight, string description) : base(weight, description)
         {
         }
-        public bool Equals(CustomerGood other) => base.Equals(other);
+        public CustomerGood(ICollection<XmlNode> props)
+        {
+            Weight = decimal.Parse(props.First(p => p.OuterXml.Contains("Weight")).InnerText);
+            Description = props.First(p => p.OuterXml.Contains("Description")).InnerText;
+        }
+        public bool Equals(CustomerGood other) => Weight == other.Weight && Description == other.Description;
         public override bool Equals(object obj) => obj is CustomerGood product && Equals(product);
         public override int GetHashCode() => base.GetHashCode();
     }

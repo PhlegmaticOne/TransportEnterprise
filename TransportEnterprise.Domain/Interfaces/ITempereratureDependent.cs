@@ -1,7 +1,7 @@
-﻿namespace TransportEnterprise.Models
+﻿namespace TransportEnterprise.Models.Interfaces
 {
     public interface ITempereratureDependent
     {
-        TemperatureRule GetTemperatureRule();
+        TemperatureRule TemperatureRule { get; }
     }
 }

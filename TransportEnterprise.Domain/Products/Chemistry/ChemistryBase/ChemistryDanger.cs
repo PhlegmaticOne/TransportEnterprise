@@ -2,7 +2,6 @@
 
 namespace TransportEnterprise.Models
 {
-    [Serializable]
     public enum ChemistryDanger
     {
         Benign,
