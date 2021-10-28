@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TransportEnterprise.Core.Exceptions
+namespace TransportEnterprise.Models.Exceptions
 {
     public class WrongObjectTypeLoadingException : Exception
     {

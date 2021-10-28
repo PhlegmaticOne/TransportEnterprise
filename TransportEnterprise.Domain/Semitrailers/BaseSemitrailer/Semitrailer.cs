@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using TransportEnterprise.Core.Exceptions;
+using TransportEnterprise.Models.Exceptions;
 using TransportEnterprise.Models.Extensions;
 
 namespace TransportEnterprise.Models
@@ -15,9 +15,9 @@ namespace TransportEnterprise.Models
         }
         public decimal LoadCapacity { get; init; }
         public decimal CurrentLoading { get; protected set; }
-        protected ICollection<Product> Products { get; set; }
+        public ICollection<Product> Products { get; set; }
         protected Type ProductType;
-        public void Load(Product product)
+        public virtual void Load(Product product)
         {
             if (product is null) throw new ArgumentNullException(nameof(product), "Product cannot be null");
             if(Products.Any())
@@ -31,9 +31,15 @@ namespace TransportEnterprise.Models
             {
                 ProductType = product.GetType();
             }
-            CurrentLoading = (CurrentLoading + product.Weight > LoadCapacity) ?
-                             CurrentLoading += product.Weight :
-                             throw new SemitrailerOverloadingException("Semitrailer is overloaded", LoadCapacity, CurrentLoading + product.Weight);
+            var additional = CurrentLoading + product.Weight;
+            if(additional <= LoadCapacity)
+            {
+                CurrentLoading += additional;
+            }
+            else
+            {
+                throw new SemitrailerOverloadingException("Semitrailer is overloaded", LoadCapacity, additional);
+            }
             Products.Add(product);
         }
         public void Unload(Product product)

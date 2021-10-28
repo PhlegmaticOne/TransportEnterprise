@@ -12,7 +12,7 @@ namespace TransportEnterprise.Models.Factories.Tests
         {
             var path = new XmlTestsFilePathesGetter(typeof(Methylamine)).GetFilePath();
             var xmlParser = new XmlChemistryParser(path, new MethilamineFactory());
-            var meths = xmlParser.DeserializeA();
+            var meths = xmlParser.DeserializeAll();
             Assert.IsTrue(meths.Count == 1);
         }
     }

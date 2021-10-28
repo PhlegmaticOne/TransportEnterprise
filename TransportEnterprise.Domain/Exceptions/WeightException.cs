@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TransportEnterprise.Core.Exceptions
+namespace TransportEnterprise.Models.Exceptions
 {
     /// <summary>
     /// Represents an exception that must to be throw when weight of a product is wrong

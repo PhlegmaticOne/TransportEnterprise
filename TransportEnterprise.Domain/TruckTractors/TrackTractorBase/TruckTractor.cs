@@ -12,7 +12,7 @@ namespace TransportEnterprise.Models
             Semitrailer = semitrailer ?? throw new ArgumentNullException(nameof(semitrailer), "Semitrailer cannot be null");
         }
         public Semitrailer Semitrailer { get; protected set; }
-        public decimal LoadCapacity => Semitrailer.LoadCapacity;
+        public decimal GetLoadCapacity() => Semitrailer.LoadCapacity;
         public abstract decimal PetrolPerHour { get; }
         public virtual void HookUp(Semitrailer newSemitrailer)
         {
@@ -23,7 +23,7 @@ namespace TransportEnterprise.Models
         }
         public bool Equals(TruckTractor other) => Semitrailer.Equals(other.Semitrailer) && PetrolPerHour == other.PetrolPerHour;
         public override bool Equals(object obj) => Equals(obj as TruckTractor);
-        public override int GetHashCode() => (int)(PetrolPerHour + LoadCapacity);
+        public override int GetHashCode() => (int)(PetrolPerHour + GetLoadCapacity());
         public override string ToString() => string.Format("{0}: {1}. Petrol consumption: {2:f4} l/h.", GetType().Name, Semitrailer.ToString(), PetrolPerHour);
 
     }

@@ -1,5 +1,5 @@
 ﻿using System;
-using TransportEnterprise.Core.Exceptions;
+using TransportEnterprise.Models.Exceptions;
 
 namespace TransportEnterprise.Models
 {

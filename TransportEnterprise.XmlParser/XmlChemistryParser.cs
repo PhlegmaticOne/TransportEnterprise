@@ -7,7 +7,7 @@ using TransportEnterprise.Models.Factories;
 
 namespace TransportEnterprise.XmlParser
 {
-    public class XmlChemistryParser : XmlParser<Chemistry>
+    public class XmlChemistryParser : XmlStreamWriterReaderParser<Chemistry>
     {
         private readonly IChemistryFactory _chemistryFactory;
 
@@ -16,10 +16,10 @@ namespace TransportEnterprise.XmlParser
         {
             _chemistryFactory = chemistryFactory ?? throw new ArgumentNullException(nameof(chemistryFactory));
         }
-        public ICollection<Chemistry> DeserializeA()
+        public override ICollection<Chemistry> DeserializeAll()
         {
             var result = new List<Chemistry>();
-            foreach (XmlNode node in _xmlDocument.LastChild.ChildNodes)
+            foreach (XmlNode node in XmlDocument.LastChild.ChildNodes)
             {
                 result.Add(_chemistryFactory.Create(node.ChildNodes.ToList()));
             }

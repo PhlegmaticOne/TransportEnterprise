@@ -9,6 +9,8 @@ namespace TransportEnterprise.Models
         public int MinimalTemperature { get; init; }
         public int MaximumTemperature { get; init; }
         public TemperatureRule ToKelvins() => new(MinimalTemperature + 273, MaximumTemperature + 273);
+        public bool IsInTheRange(TemperatureRule temperatureRule) => MinimalTemperature >= temperatureRule.MinimalTemperature &&
+                                                                     MaximumTemperature <= temperatureRule.MaximumTemperature;
         public bool Equals(TemperatureRule other) => MinimalTemperature == other.MinimalTemperature && MaximumTemperature == other.MaximumTemperature;
         public override bool Equals(object obj) => obj is TemperatureRule temperatureRule && Equals(temperatureRule);
         public override int GetHashCode() => MinimalTemperature * MaximumTemperature;

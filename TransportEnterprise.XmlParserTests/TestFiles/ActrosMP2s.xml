@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TruckTractors>
+	<TruckTractor>
+		<PetrolPerHour>550,0</PetrolPerHour>
+		<Semitrailer>
+			<LoadCapacity>500</LoadCapacity>
+			<CurrentLoading>110</CurrentLoading>
+			<Products>
+				<PetrolA92>
+					<ChemistryDangers>
+						<ChemistryDanger>Flammable</ChemistryDanger>
+						<ChemistryDanger>Explosive</ChemistryDanger>
+					</ChemistryDangers>
+					<Weight>10</Weight>
+					<Description>Petrol 92</Description>
+				</PetrolA92>
+				<PetrolA92>
+					<ChemistryDangers>
+						<ChemistryDanger>Flammable</ChemistryDanger>
+						<ChemistryDanger>Explosive</ChemistryDanger>
+					</ChemistryDangers>
+					<Weight>20</Weight>
+					<Description>Petrol 92</Description>
+				</PetrolA92>
+				<PetrolA92>
+					<ChemistryDangers>
+						<ChemistryDanger>Flammable</ChemistryDanger>
+						<ChemistryDanger>Explosive</ChemistryDanger>
+					</ChemistryDangers>
+					<Weight>30</Weight>
+					<Description>Petrol 92</Description>
+				</PetrolA92>
+			</Products>
+		</Semitrailer>
+	</TruckTractor>
+</TruckTractors>
