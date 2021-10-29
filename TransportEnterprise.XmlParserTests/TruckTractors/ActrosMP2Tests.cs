@@ -23,10 +23,6 @@ namespace TransportEnterprise.Models.Tests
             semitrailer.Load(new PetrolA92(30, dangers, "Petrol 92"));
             var actros = new ActrosMP2(semitrailer);
             var path = new XmlTestsFilePathesGetter(actros.GetType()).GetFilePath();
-            var serializer = new XmlTrackTracktorsParser(path);
-
-
-            serializer.Serialize(actros);
         }
     }
 }

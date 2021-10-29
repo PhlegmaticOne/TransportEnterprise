@@ -7,11 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransportEnterprise.Models"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransportEnterprise.Core", "TransportEnterprise.Core\TransportEnterprise.Core.csproj", "{A602FC8C-2034-4468-92BF-944B805DEEA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransportEnterprise.ModelsTests", "TransportEnterprise.ModelsTests\TransportEnterprise.ModelsTests.csproj", "{356618D6-2A6C-4DC1-A97D-40E04D6B302A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransportEnterprise.XmlParser", "TransportEnterprise.XmlParser\TransportEnterprise.XmlParser.csproj", "{DD308B4D-5841-40A0-8CCF-D711593436D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransportEnterprise.XmlParser", "TransportEnterprise.XmlParser\TransportEnterprise.XmlParser.csproj", "{DD308B4D-5841-40A0-8CCF-D711593436D2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransportEnterprise.XmlParserTests", "TransportEnterprise.XmlParserTests\TransportEnterprise.XmlParserTests.csproj", "{9193258A-DFA9-460E-929E-7EC6A317B6CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransportEnterprise.XmlParserTests", "TransportEnterprise.XmlParserTests\TransportEnterprise.XmlParserTests.csproj", "{9193258A-DFA9-460E-929E-7EC6A317B6CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,10 +25,6 @@ Global
 		{A602FC8C-2034-4468-92BF-944B805DEEA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A602FC8C-2034-4468-92BF-944B805DEEA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A602FC8C-2034-4468-92BF-944B805DEEA5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{356618D6-2A6C-4DC1-A97D-40E04D6B302A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{356618D6-2A6C-4DC1-A97D-40E04D6B302A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{356618D6-2A6C-4DC1-A97D-40E04D6B302A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{356618D6-2A6C-4DC1-A97D-40E04D6B302A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DD308B4D-5841-40A0-8CCF-D711593436D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DD308B4D-5841-40A0-8CCF-D711593436D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD308B4D-5841-40A0-8CCF-D711593436D2}.Release|Any CPU.ActiveCfg = Release|Any CPU

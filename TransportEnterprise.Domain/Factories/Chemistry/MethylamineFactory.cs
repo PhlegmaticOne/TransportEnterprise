@@ -5,9 +5,9 @@ using TransportEnterprise.Models.Extensions;
 
 namespace TransportEnterprise.Models.Factories
 {
-    public class MethilamineFactory : IChemistryFactory
+    public class MethylamineFactory : IDomainFactory<Methylamine>
     {
-        public Chemistry Create(ICollection<XmlNode> xmlNodes)
+        public Methylamine Create(ICollection<XmlNode> xmlNodes)
         {
             var weight = decimal.Parse(xmlNodes.First(n => n.OuterXml.Contains("Weight")).InnerText);
             var description = xmlNodes.First(n => n.OuterXml.Contains("Description")).InnerText;

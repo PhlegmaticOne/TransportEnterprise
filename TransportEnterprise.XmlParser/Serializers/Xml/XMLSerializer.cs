@@ -1,44 +1,37 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
 using System.Xml;
 
-namespace TransportEnterprise.XmlParser
+namespace TransportEnterprise.XmlParser.Serializers
 {
-    public abstract class XmlParser<T> : Parser<T> where T : class
+    public abstract class XMLSerializer<T> : Serializer<T> where T : class
     {
-        protected string FilePath;
-        protected abstract Type WriterType { get; }
-        protected abstract Type ReaderType { get; }
-        public XmlParser(string filePath)
+        protected readonly string FilePath;
+        protected readonly XmlDocument XmlDocument;
+        public XMLSerializer(string filePath)
         {
             if (string.IsNullOrWhiteSpace(filePath))
             {
-                throw new ArgumentException($"\"{nameof(filePath)}\" не может быть пустым или содержать только пробел.", nameof(filePath));
+                throw new ArgumentException($"\"{nameof(filePath)}\" cannot be empty or white space.", nameof(filePath));
             }
-
+            XmlDocument = new XmlDocument();
             FilePath = filePath;
-            Type = typeof(T);
-            ConfigureFile(Type);
+            ConfigureFile();
         }
-        protected XmlDocument XmlDocument;
-        protected readonly Type Type;
-        public override ICollection<T> DeserializeAll() => new List<T>();
+        protected abstract void Save();
         public override void Serialize(T entity)
-        { 
+        {
             var sb = new StringBuilder();
-            sb.AppendLine($"\n\t<{Type.Name}>");
-            ToXml(sb, entity, 2).AppendLine($"\t</{Type.Name}>");
-
+            var typeName = typeof(T).Name;
+            sb.AppendLine($"\n\t<{typeName}>");
+            ToXml(sb, entity, 2).AppendLine($"\t</{typeName}>");
             var fragment = XmlDocument.CreateDocumentFragment();
             fragment.InnerXml = sb.ToString();
             XmlDocument.LastChild.AppendChild(fragment);
-
-            using var sw = Activator.CreateInstance(WriterType, FilePath) as StreamWriter;
-            XmlDocument.Save(sw);
+            Save();
         }
         private StringBuilder ToXml(StringBuilder sb, object entity, int padding)
         {
@@ -61,7 +54,7 @@ namespace TransportEnterprise.XmlParser
                         else
                         {
                             sb.AppendLine($"{paddingTabs}\t<{innerType.Name}>");
-                            ToXml(sb, innerEntity, (isFirstEntity) ? padding+=2 : padding);
+                            ToXml(sb, innerEntity, (isFirstEntity) ? padding += 2 : padding);
                             sb.AppendLine($"{paddingTabs}\t</{innerType.Name}>");
                             isFirstEntity = false;
                         }
@@ -84,19 +77,15 @@ namespace TransportEnterprise.XmlParser
             }
             return sb;
         }
-        private void ConfigureFile(Type entityType)
+        private void ConfigureFile()
         {
-            XmlDocument = new XmlDocument();
             if (File.Exists(FilePath) == false)
             {
                 var declaration = XmlDocument.CreateXmlDeclaration("1.0", null, null);
-                var mainList = XmlDocument.CreateElement($"{entityType.Name}s");
+                var mainList = XmlDocument.CreateElement($"{typeof(T).Name}s");
                 XmlDocument.AppendChild(declaration);
                 XmlDocument.AppendChild(mainList);
-                using (var sw = Activator.CreateInstance(WriterType, FilePath) as StreamWriter)
-                {
-                    XmlDocument.Save(sw.BaseStream);
-                }
+                Save();
             }
             else
             {

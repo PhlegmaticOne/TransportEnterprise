@@ -3,8 +3,8 @@ using System.Xml;
 
 namespace TransportEnterprise.Models.Factories
 {
-    public interface IChemistryFactory
+    public interface IDomainFactory<T> where T: class
     {
-        Chemistry Create(ICollection<XmlNode> xmlNodes);
+        T Create(ICollection<XmlNode> xmlNodes);
     }
 }

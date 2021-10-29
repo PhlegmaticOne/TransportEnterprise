@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Methylamines>
+﻿<?xml version="1.0" encoding="utf-8"?><Methylamines>
 	<Methylamine>
 		<TemperatureRule>
 			<MinimalTemperature>-90</MinimalTemperature>
-			<MaximumTemperature>8</MaximumTemperature>
+			<MaximumTemperature>10</MaximumTemperature>
 		</TemperatureRule>
 		<ChemistryDangers>
-			<ChemistryDanger>Explosive</ChemistryDanger>
+			<ChemistryDanger>Flammable</ChemistryDanger>
 			<ChemistryDanger>Toxic</ChemistryDanger>
 		</ChemistryDangers>
 		<Weight>10</Weight>
