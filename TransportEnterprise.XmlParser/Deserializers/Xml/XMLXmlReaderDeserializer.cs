@@ -1,11 +1,10 @@
 ﻿using System.Xml;
-using TransportEnterprise.Models.Factories;
 
-namespace TransportEnterprise.XmlParser.Deserializers.Xml
+namespace TransportEnterprise.XmlParser.Deserializers
 {
     public class XMLXmlReaderDeserializer<T> : XMLDeserializer<T> where T : class
     {
-        public XMLXmlReaderDeserializer(string filePath, IDomainFactory<T> factory) : base(filePath, factory) { }
+        public XMLXmlReaderDeserializer(string filePath) : base(filePath) { }
         protected override void Load()
         {
             using (var xmlr = XmlReader.Create(FilePath))

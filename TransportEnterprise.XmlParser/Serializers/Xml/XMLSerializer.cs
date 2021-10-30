@@ -35,12 +35,13 @@ namespace TransportEnterprise.XmlParser.Serializers
         }
         private StringBuilder ToXml(StringBuilder sb, object entity, int padding)
         {
+            if (entity is null) return sb;
             var entityType = entity.GetType();
             var assemblyName = Assembly.GetAssembly(entityType).FullName;
             var paddingTabs = new string('\t', padding);
             foreach (var prop in entityType.GetProperties())
             {
-                if (prop.PropertyType.Name == "ICollection`1")
+                if (prop.PropertyType.Name == "ICollection`1" || prop.PropertyType.Name == "IReadOnlyCollection`1")
                 {
                     var isFirstEntity = true;
                     sb.AppendLine($"{paddingTabs}<{prop.Name}>");
@@ -69,9 +70,18 @@ namespace TransportEnterprise.XmlParser.Serializers
                     }
                     else
                     {
-                        sb.AppendLine($"{paddingTabs}<{prop.Name}>");
-                        ToXml(sb, prop.GetValue(entity), ++padding);
-                        sb.AppendLine($"{paddingTabs}</{prop.Name}>");
+                        var value = prop.GetValue(entity);
+                        var propName = prop.PropertyType.IsAbstract ? value.GetType().Name : prop.Name;
+                        sb.AppendLine($"{paddingTabs}<{propName}>");
+                        if (prop.PropertyType.IsValueType)
+                        {
+                            sb.AppendLine($"{paddingTabs}\t{value}");
+                        }
+                        else
+                        {
+                            ToXml(sb, value, ++padding);
+                        }
+                        sb.AppendLine($"{paddingTabs}</{propName}>");
                     }
                 }
             }

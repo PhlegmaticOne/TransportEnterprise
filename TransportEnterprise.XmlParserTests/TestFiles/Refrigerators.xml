@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Refrigerators>
+	<Refrigerator>
+		<TemperatureRule>
+			<MinimalTemperature>-100</MinimalTemperature>
+			<MaximumTemperature>0</MaximumTemperature>
+		</TemperatureRule>
+		<NoiseLevelInDecibels>50</NoiseLevelInDecibels>
+		<LoadCapacity>500</LoadCapacity>
+		<CurrentLoading>100</CurrentLoading>
+		<Products>
+			<CocaCola>
+					<ColaTaste>
+						Orange
+					</ColaTaste>
+					<Weight>100</Weight>
+					<Description>Very tasteful</Description>
+			</CocaCola>
+		</Products>
+	</Refrigerator>
+</Refrigerators>

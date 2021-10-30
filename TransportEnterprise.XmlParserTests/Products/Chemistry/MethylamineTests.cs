@@ -1,14 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TransportEnterprise.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TransportEnterprise.Core;
 using TransportEnterprise.XmlParser.Serializers;
-using TransportEnterprise.XmlParser.Deserializers.Xml;
-using TransportEnterprise.Models.Factories;
+using TransportEnterprise.XmlParser.Deserializers;
 
 namespace TransportEnterprise.Models.Tests
 {
@@ -28,8 +22,9 @@ namespace TransportEnterprise.Models.Tests
         public void MethylamineDeserializeTest()
         {
             var path = new XmlTestsFilePathesGetter(typeof(Methylamine)).GetFilePath();
-            var deserializer = new XMLXmlReaderDeserializer<Methylamine>(path, new MethylamineFactory());
+            var deserializer = new XMLXmlReaderDeserializer<Product>(path);
             var entity = deserializer.Where(m => m.Weight == 10);
+            var carPark = new CarPark();
         }
     }
 }
