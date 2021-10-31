@@ -7,7 +7,7 @@ namespace TransportEnterprise.Models
         public TruckTractor() { }
         public TruckTractor(Semitrailer semitrailer)
         {
-            Semitrailer = semitrailer ?? throw new ArgumentNullException(nameof(semitrailer), "Semitrailer cannot be null");
+            Semitrailer = semitrailer;
         }
         public Semitrailer Semitrailer { get; protected set; }
         public decimal GetLoadCapacity() => Semitrailer.LoadCapacity;

@@ -15,7 +15,8 @@ namespace TransportEnterprise.Models.Factories
         {
             Factories = new()
             {
-                { "ActrosMP2", new ActrosMP2XmlFactory(Node, _abstractDomainFactoriesFactory) }
+                { "ActrosMP2", new ActrosMP2XmlFactory(Node, _abstractDomainFactoriesFactory) },
+                { "ActrosMP3", new ActrosMP3XmlFactory(Node, _abstractDomainFactoriesFactory) }
             };
         }
     }

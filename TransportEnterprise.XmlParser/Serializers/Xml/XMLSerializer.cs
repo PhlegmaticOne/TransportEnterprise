@@ -78,7 +78,7 @@ namespace TransportEnterprise.XmlParser.Serializers
                         }
                         else
                         {
-                            sb.AppendLine($" type=\"{value.GetType().Name}\">");
+                            sb.AppendLine($" type=\"{value?.GetType().Name}\">");
                             ToXml(sb, value, padding+=2);
                         }
                         sb.AppendLine($"{paddingTabs}</{prop.Name}>");

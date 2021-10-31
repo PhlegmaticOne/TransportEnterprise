@@ -16,7 +16,7 @@ namespace TransportEnterprise.Models.Factories
         {
             Factories = new()
             {
-                { "CarPark", new CarParkXmlFactory(Node) },
+                { "CarPark", new CarParkXmlFactory(Node, _abstractDomainFactoriesFactory) },
             };
         }
     }
