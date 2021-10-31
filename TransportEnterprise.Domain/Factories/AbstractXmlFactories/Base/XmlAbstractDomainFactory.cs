@@ -10,7 +10,6 @@ namespace TransportEnterprise.Models.Factories
         public XmlAbstractDomainFactory(XmlNode node)
         {
             Node = node;
-            InitializeFactories();
         }
         protected abstract void InitializeFactories();
         public T Create()
@@ -18,6 +17,10 @@ namespace TransportEnterprise.Models.Factories
             if (Factories.TryGetValue(Node.Name, out IDomainFactory<T> factory))
             {
                 return factory.Create();
+            }
+            else if(Factories.TryGetValue(Node.Attributes[0].Value, out IDomainFactory<T> factory1))
+            {
+                return factory1.Create();
             }
             return null;
         }

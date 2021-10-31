@@ -1,13 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Xml;
+﻿using System.Xml;
 
 namespace TransportEnterprise.Models.Factories
 {
     public class CarParksXmlAbstractFactory : XmlAbstractDomainFactory<CarPark>
     {
-        public CarParksXmlAbstractFactory(XmlNode node) : base(node)
+        private readonly IXmlAbstractDomainFactoriesFactory _abstractDomainFactoriesFactory;
+
+        public CarParksXmlAbstractFactory(XmlNode node, IXmlAbstractDomainFactoriesFactory abstractDomainFactoriesFactory) : base(node)
         {
+            _abstractDomainFactoriesFactory = abstractDomainFactoriesFactory;
+            InitializeFactories();
         }
 
         protected override void InitializeFactories()

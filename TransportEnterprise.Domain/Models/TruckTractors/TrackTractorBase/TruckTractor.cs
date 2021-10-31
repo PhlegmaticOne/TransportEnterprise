@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Text;
-using TransportEnterprise.Models.Interfaces;
 
 namespace TransportEnterprise.Models
 {
@@ -15,6 +12,7 @@ namespace TransportEnterprise.Models
         public Semitrailer Semitrailer { get; protected set; }
         public decimal GetLoadCapacity() => Semitrailer.LoadCapacity;
         public abstract decimal PetrolPerHour { get; }
+        
         public virtual void HookUp(Semitrailer newSemitrailer)
         {
             if(newSemitrailer is not null)

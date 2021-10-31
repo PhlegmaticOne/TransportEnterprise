@@ -3,6 +3,7 @@ using System.Linq;
 using TransportEnterprise.Core;
 using TransportEnterprise.XmlParser.Serializers;
 using TransportEnterprise.XmlParser.Deserializers;
+using TransportEnterprise.Models.Factories.AbstractXmlFactories;
 
 namespace TransportEnterprise.Models.Tests
 {
@@ -26,7 +27,8 @@ namespace TransportEnterprise.Models.Tests
         public void RefrigeratorDeserializeTest()
         {
             var path = new XmlTestsFilePathesGetter(typeof(Refrigerator)).GetFilePath();
-            var deserializer = new XMLStreamReaderDeserializer<Semitrailer>(path);
+            var factory = new XmlAbstractDomainFactoriesFactory();
+            var deserializer = new XMLStreamReaderDeserializer<Semitrailer>(path, factory);
             var semitrailers = deserializer.All();
 
             Assert.IsTrue(semitrailers.Count == 1);

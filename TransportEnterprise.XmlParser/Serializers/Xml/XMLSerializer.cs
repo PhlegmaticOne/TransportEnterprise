@@ -71,17 +71,17 @@ namespace TransportEnterprise.XmlParser.Serializers
                     else
                     {
                         var value = prop.GetValue(entity);
-                        var propName = prop.PropertyType.IsAbstract ? value.GetType().Name : prop.Name;
-                        sb.AppendLine($"{paddingTabs}<{propName}>");
+                        sb.Append($"{paddingTabs}<{prop.Name}");
                         if (prop.PropertyType.IsValueType)
                         {
-                            sb.AppendLine($"{paddingTabs}\t{value}");
+                            sb.AppendLine($">\n{paddingTabs}\t{value}");
                         }
                         else
                         {
-                            ToXml(sb, value, ++padding);
+                            sb.AppendLine($" type=\"{value.GetType().Name}\">");
+                            ToXml(sb, value, padding+=2);
                         }
-                        sb.AppendLine($"{paddingTabs}</{propName}>");
+                        sb.AppendLine($"{paddingTabs}</{prop.Name}>");
                     }
                 }
             }

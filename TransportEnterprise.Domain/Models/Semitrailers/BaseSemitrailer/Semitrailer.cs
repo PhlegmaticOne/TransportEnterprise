@@ -14,6 +14,7 @@ namespace TransportEnterprise.Models
             Products = new List<Product>();
         }
         public decimal LoadCapacity { get; init; }
+        public string Name => GetType().Name;
         public decimal CurrentLoading { get; protected set; }
         public ICollection<Product> Products { get; set; }
         protected Type ProductType;

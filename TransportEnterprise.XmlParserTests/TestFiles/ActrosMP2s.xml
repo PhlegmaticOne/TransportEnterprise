@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ActrosMP2s>
+	<ActrosMP2>
+		<PetrolPerHour>220,0</PetrolPerHour>
+		<Semitrailer type="TankTruck">
+				<LoadCapacity>200</LoadCapacity>
+				<Name>TankTruck</Name>
+				<CurrentLoading>100</CurrentLoading>
+				<Products>
+					<PetrolA92>
+						<ChemistryDangers>
+							<ChemistryDanger>Flammable</ChemistryDanger>
+							<ChemistryDanger>Explosive</ChemistryDanger>
+							<ChemistryDanger>Toxic</ChemistryDanger>
+						</ChemistryDangers>
+						<Weight>10</Weight>
+						<Description>Little</Description>
+					</PetrolA92>
+					<PetrolA92>
+						<ChemistryDangers>
+							<ChemistryDanger>Flammable</ChemistryDanger>
+							<ChemistryDanger>Explosive</ChemistryDanger>
+							<ChemistryDanger>Toxic</ChemistryDanger>
+						</ChemistryDangers>
+						<Weight>20</Weight>
+						<Description>More</Description>
+					</PetrolA92>
+					<PetrolA92>
+						<ChemistryDangers>
+							<ChemistryDanger>Flammable</ChemistryDanger>
+							<ChemistryDanger>Explosive</ChemistryDanger>
+							<ChemistryDanger>Toxic</ChemistryDanger>
+						</ChemistryDangers>
+						<Weight>30</Weight>
+						<Description>More</Description>
+					</PetrolA92>
+					<PetrolA92>
+						<ChemistryDangers>
+							<ChemistryDanger>Flammable</ChemistryDanger>
+							<ChemistryDanger>Explosive</ChemistryDanger>
+							<ChemistryDanger>Toxic</ChemistryDanger>
+						</ChemistryDangers>
+						<Weight>40</Weight>
+						<Description>The most</Description>
+					</PetrolA92>
+				</Products>
+		</Semitrailer>
+	</ActrosMP2>
+</ActrosMP2s>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Xml;
+using TransportEnterprise.Models.Factories;
 using TransportEnterprise.Models.Factories.AbstractXmlFactories;
 
 namespace TransportEnterprise.XmlParser.Deserializers
@@ -10,13 +11,16 @@ namespace TransportEnterprise.XmlParser.Deserializers
     {
         protected readonly XmlDocument XmlDocument;
         protected readonly string FilePath;
-        public XMLDeserializer(string filePath)
+        private readonly IXmlAbstractDomainFactoriesFactory _abstractDomainFactoriesFactory;
+
+        public XMLDeserializer(string filePath, IXmlAbstractDomainFactoriesFactory abstractDomainFactoriesFactory)
         {
             if(File.Exists(filePath) == false)
             {
                 throw new FileNotFoundException("File does not exist", filePath);
             }
             FilePath = filePath;
+            _abstractDomainFactoriesFactory = abstractDomainFactoriesFactory;
             XmlDocument = new XmlDocument();
             Load();
         }
@@ -26,7 +30,7 @@ namespace TransportEnterprise.XmlParser.Deserializers
             var result = new List<T>();
             foreach (XmlNode entity in XmlDocument.LastChild.ChildNodes)
             {
-                var factory = XmlAbstractDomainFactoriesFactory.CreateInstance<T>(entity);
+                var factory = _abstractDomainFactoriesFactory.CreateFactory<T>(entity);
                 result.Add(factory.Create());
             }
             return result;
