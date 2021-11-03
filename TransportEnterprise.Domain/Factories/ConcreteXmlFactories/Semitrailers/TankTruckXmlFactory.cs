@@ -19,8 +19,9 @@ namespace TransportEnterprise.Models.Factories
         public TankTruck Create()
         {
             var loadCapacity = decimal.Parse(_nodes.GetInnerText("LoadCapacity"));
+            var valueCapacity = decimal.Parse(_nodes.GetInnerText("ValueCapacity"));
             var xmlProducts = _nodes.GetNode("Products");
-            var tankTruck = new TankTruck(loadCapacity);
+            var tankTruck = new TankTruck(loadCapacity, valueCapacity);
             foreach (XmlNode product in xmlProducts)
             {
                 var factory = _abstractDomainFactoriesFactory.CreateFactory<Product>(product);

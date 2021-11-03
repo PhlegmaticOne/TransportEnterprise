@@ -13,7 +13,7 @@ namespace TransportEnterprise.Models.Tests
         [TestMethod()]
         public void MethylamineSerializeTest()
         {
-            var meth = new Methylamine(10, new List<ChemistryDanger>() { ChemistryDanger.Flammable, ChemistryDanger.Toxic });
+            var meth = new Methylamine(10, 2, new List<ChemistryDanger>() { ChemistryDanger.Flammable, ChemistryDanger.Toxic }, null);
             var path = new XmlTestsFilePathesGetter(meth.GetType()).GetFilePath();
             var serializer = new XMLXmlWriterSerializer<Methylamine>(path);
             serializer.Serialize(meth);

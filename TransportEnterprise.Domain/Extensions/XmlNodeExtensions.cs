@@ -20,5 +20,12 @@ namespace TransportEnterprise.Models.Extensions
             "Vanilla" => CocaColaTaste.Vanilla,
             _ => CocaColaTaste.ClassicWithSugar
         };
+        public static MilkTaste ToMilkTaste(this XmlNode xmlNode) => xmlNode.InnerText.Trim('\t', '\n', '\r') switch
+        {
+            "Cow" => MilkTaste.Cow,
+            "Chocolate" => MilkTaste.Chocolate,
+            "Soy" => MilkTaste.Soy,
+            _ => MilkTaste.Cow
+        };
     }
 }

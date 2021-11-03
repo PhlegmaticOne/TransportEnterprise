@@ -12,9 +12,10 @@ namespace TransportEnterprise.Models.Factories
         public CocaCola Create()
         {
             var weight = decimal.Parse(_nodes.GetInnerText("Weight"));
+            var value = decimal.Parse(_nodes.GetInnerText("Value"));
             var description = _nodes.GetInnerText("Description");
             var cocaColaTaste = _nodes.GetNode("ColaTaste").ToCocaColaTaste();
-            return new CocaCola(weight, description, cocaColaTaste);
+            return new CocaCola(weight, value, description, cocaColaTaste);
         }
     }
 }

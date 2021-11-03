@@ -2,15 +2,16 @@
 
 namespace TransportEnterprise.Models
 {
+    /// <summary>
+    /// Represents petrol A92 instance
+    /// </summary>
     public class PetrolA92 : Petrol
     {
-        public PetrolA92() { }
-        public PetrolA92(decimal weight, ICollection<ChemistryDanger> chemistryDangers, string description) :
-            base(weight, chemistryDangers, description)
-        {
-        }
-        protected PetrolA92(decimal weight, string description = "Petrol A92") :
-            base(weight, description)
+        /// <summary>
+        /// Initialzes new PetrolA92 instance
+        /// </summary>
+        public PetrolA92(decimal weight, decimal value, ICollection<ChemistryDanger> chemistryDangers, string description) :
+            base(weight, value, chemistryDangers, description)
         {
         }
     }

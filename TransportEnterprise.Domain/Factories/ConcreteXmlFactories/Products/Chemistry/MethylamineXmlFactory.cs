@@ -14,16 +14,18 @@ namespace TransportEnterprise.Models.Factories
         {
             var weight = decimal.Parse(_nodes.GetInnerText("Weight"));
             var description = _nodes.GetInnerText("Description");
+            var value = decimal.Parse(_nodes.GetInnerText("Value"));
             var xmlChemistryDangers = _nodes.GetNode("ChemistryDangers");
             var chemistryDangers = new List<ChemistryDanger>();
             foreach (XmlNode danger in xmlChemistryDangers)
             {
                 chemistryDangers.Add(danger.ToChemistryDanger());
             }
+            var temperatureNode = _nodes.GetNode("TemperatureRule").ChildNodes.ToList();
             var temperatureRule = new TemperatureRule(
-                int.Parse(_nodes.GetInnerText("MinimalTemperature")),
-                int.Parse(_nodes.GetInnerText("MaximumTemperature")));
-            return new Methylamine(weight, chemistryDangers, temperatureRule, description);
+                double.Parse(temperatureNode.GetInnerText("MinimalTemperature")),
+                double.Parse(temperatureNode.GetInnerText("MaximumTemperature")));
+            return new Methylamine(weight, value, chemistryDangers, temperatureRule, description);
         }
     }
 }

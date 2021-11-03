@@ -1,59 +1,106 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using TransportEnterprise.Models.Exceptions;
 using TransportEnterprise.Models.Extensions;
 
 namespace TransportEnterprise.Models
 {
-    public abstract class Semitrailer : IEquatable<Semitrailer>
+    /// <summary>
+    /// Represents base instance of semitrailers
+    /// </summary>
+    public abstract class Semitrailer : IEquatable<Semitrailer>, IWithLoadingRules
     {
-        public Semitrailer(decimal maxLoadWeight)
+        protected readonly LoadingRules _rules;
+        private readonly ICollection<Product> _products;
+        /// <summary>
+        /// Initializes new semitrailer instance with specified max load capacity and max load value
+        /// </summary>
+        protected Semitrailer(decimal maxLoadWeight, decimal maxLoadValue)
         {
-            LoadCapacity = maxLoadWeight > 0 ? maxLoadWeight : throw new WeightException("Load capacity cannot be less or equal to zero", maxLoadWeight);
-            Products = new List<Product>();
+            LoadCapacity = maxLoadWeight > 0 ? maxLoadWeight :
+                throw new WeightException("Load mass capacity cannot be less or equal to zero", maxLoadWeight);
+            ValueCapacity = maxLoadValue > 0 ? maxLoadValue :
+                throw new WeightException("Load value capacity cannot be less or equal to zero", maxLoadWeight);
+            _products = new List<Product>();
+            _rules = new LoadingRules(new List<Func<Product, bool>>()
+            {
+                (product) => product is not null,
+                (product) => product.Weight + CurrentLoading <= LoadCapacity,
+                (product) => product.Value + CurrentLoadedValue<= ValueCapacity
+            });
         }
+        /// <summary>
+        /// Load capacity of semitrailer
+        /// </summary>
         public decimal LoadCapacity { get; init; }
-        public string Name => GetType().Name;
+        /// <summary>
+        /// Max value capacity
+        /// </summary>
+        public decimal ValueCapacity { get; init; }
+        /// <summary>
+        /// Current loading of semitrailer
+        /// </summary>
         public decimal CurrentLoading { get; protected set; }
-        public ICollection<Product> Products { get; set; }
-        protected Type ProductType;
+        /// <summary>
+        /// Current loaded value
+        /// </summary>
+        public decimal CurrentLoadedValue { get; protected set; }
+        /// <summary>
+        /// Loaded ro semitrialer products
+        /// </summary>
+        public IReadOnlyCollection<Product> Products => new ReadOnlyCollection<Product>(_products.ToList());
+        /// <summary>
+        /// Loads new product to semitrailer
+        /// </summary>
         public virtual void Load(Product product)
         {
-            if (product is null) throw new ArgumentNullException(nameof(product), "Product cannot be null");
-            if(Products.Any())
+            if (GetLoadingRules().CanLoad(product) == false)
             {
-                if(product.GetType() != ProductType)
-                {
-                    throw new WrongObjectTypeLoadingException("Wrong income object", ProductType, product.GetType());
-                }
+                throw new ArgumentException("Wrong product", nameof(product));
             }
-            else
-            {
-                ProductType = product.GetType();
-            }
-            var additional = CurrentLoading + product.Weight;
-            if(additional <= LoadCapacity)
-            {
-                CurrentLoading += product.Weight;
-            }
-            else
-            {
-                throw new SemitrailerOverloadingException("Semitrailer is overloaded", LoadCapacity, additional);
-            }
-            Products.Add(product);
+            CurrentLoadedValue += product.Value;
+            CurrentLoading += product.Weight;
+            _products.Add(product);
         }
-        public void Unload(Product product)
+        /// <summary>
+        /// Unloads product from semitrailer
+        /// </summary>
+        public virtual void Unload(Product product)
         {
             if (Products.Contains(product))
             {
                 CurrentLoading -= product.Weight;
-                Products.Remove(product);
+                _products.Remove(product);
             }
         }
-        public bool Equals(Semitrailer other) => other.LoadCapacity == LoadCapacity && Products.AllEquals(other.Products);
+        /// <summary>
+        /// Unloads all products from smitriler
+        /// </summary>
+        public void UnloadAll() => _products.Clear();
+        /// <summary>
+        /// Checks equality of two semitrilers
+        /// </summary>
+        public bool Equals(Semitrailer other) => other.LoadCapacity == LoadCapacity && _products.AllEquals(other._products);
+        /// <summary>
+        /// Checks equality of current semitriler with specified object
+        /// </summary>
         public override bool Equals(object obj) => obj is Semitrailer semitrailer && Equals(semitrailer);
+        /// <summary>
+        /// Gets hash code of current semitrailer
+        /// </summary>
+        /// <returns></returns>
         public override int GetHashCode() => (int)LoadCapacity;
+        /// <summary>
+        /// Gets string representation of current semitrailer
+        /// </summary>
+        /// <returns></returns>
         public override string ToString() => string.Format("{0}. Max load capacity: {1:f4}. Current loading: {2:f4}", GetType().Name, LoadCapacity, CurrentLoading);
+        /// <summary>
+        /// Gets rules for adding new product to the semitrailer
+        /// </summary>
+        /// <returns></returns>
+        public LoadingRules GetLoadingRules() => _rules;
     }
 }

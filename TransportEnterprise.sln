@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransportEnterprise.XmlPars
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransportEnterprise.XmlParserTests", "TransportEnterprise.XmlParserTests\TransportEnterprise.XmlParserTests.csproj", "{9193258A-DFA9-460E-929E-7EC6A317B6CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransportEnterprise.ModelsTests", "TransportEnterprise.ModelsTests\TransportEnterprise.ModelsTests.csproj", "{C78414FE-6D04-458B-863E-F4FCFC0B4501}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{9193258A-DFA9-460E-929E-7EC6A317B6CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9193258A-DFA9-460E-929E-7EC6A317B6CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9193258A-DFA9-460E-929E-7EC6A317B6CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C78414FE-6D04-458B-863E-F4FCFC0B4501}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C78414FE-6D04-458B-863E-F4FCFC0B4501}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C78414FE-6D04-458B-863E-F4FCFC0B4501}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C78414FE-6D04-458B-863E-F4FCFC0B4501}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

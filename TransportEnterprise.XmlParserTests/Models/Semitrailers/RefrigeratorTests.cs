@@ -13,9 +13,9 @@ namespace TransportEnterprise.Models.Tests
         [TestMethod()]
         public void RefrigeratorSerializeTest()
         {
-            var refrigerator = new Refrigerator(500, new TemperatureRule(-100, 0), 50);
-            var cocaCola = new CocaCola(100, "Very tasteful", CocaColaTaste.Orange);
-            refrigerator.Load(cocaCola);
+            var refrigerator = new Refrigerator(500, 500, new TemperatureRule(-100, 0), 50);
+            var milk = new Milk(100, 2, "Very tasteful", new TemperatureRule(-10, -2), MilkTaste.Cow);
+            refrigerator.Load(milk);
 
             var path = new XmlTestsFilePathesGetter(refrigerator.GetType()).GetFilePath();
             var serializer = new XMLStreamWriterSerializer<Refrigerator>(path);
@@ -33,8 +33,8 @@ namespace TransportEnterprise.Models.Tests
 
             Assert.IsTrue(semitrailers.Count == 1);
             Assert.IsInstanceOfType(semitrailers.ElementAt(0), typeof(Semitrailer));
-            Assert.IsInstanceOfType(semitrailers.ElementAt(0).Products.ElementAt(0), typeof(CocaCola));
-            Assert.IsTrue((semitrailers.ElementAt(0).Products.ElementAt(0) as CocaCola).ColaTaste == CocaColaTaste.Orange);
+            Assert.IsInstanceOfType(semitrailers.ElementAt(0).Products.ElementAt(0), typeof(Milk));
+            Assert.IsTrue((semitrailers.ElementAt(0).Products.ElementAt(0) as Milk).MilkTaste == MilkTaste.Cow);
         }
     }
 }

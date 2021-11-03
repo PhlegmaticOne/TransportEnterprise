@@ -4,8 +4,9 @@
 		<Semitrailers>
 			<TankTruck>
 				<LoadCapacity>200</LoadCapacity>
-				<Name>TankTruck</Name>
+				<ValueCapacity>200</ValueCapacity>
 				<CurrentLoading>100</CurrentLoading>
+				<CurrentLoadedValue>29</CurrentLoadedValue>
 				<Products>
 					<PetrolA92>
 						<ChemistryDangers>
@@ -14,6 +15,7 @@
 							<ChemistryDanger>Toxic</ChemistryDanger>
 						</ChemistryDangers>
 						<Weight>10</Weight>
+						<Value>1</Value>
 						<Description>Little</Description>
 					</PetrolA92>
 					<PetrolA92>
@@ -23,6 +25,7 @@
 							<ChemistryDanger>Toxic</ChemistryDanger>
 						</ChemistryDangers>
 						<Weight>20</Weight>
+						<Value>23</Value>
 						<Description>More</Description>
 					</PetrolA92>
 					<PetrolA92>
@@ -32,6 +35,7 @@
 							<ChemistryDanger>Toxic</ChemistryDanger>
 						</ChemistryDangers>
 						<Weight>30</Weight>
+						<Value>3</Value>
 						<Description>More</Description>
 					</PetrolA92>
 					<PetrolA92>
@@ -41,6 +45,7 @@
 							<ChemistryDanger>Toxic</ChemistryDanger>
 						</ChemistryDangers>
 						<Weight>40</Weight>
+						<Value>2</Value>
 						<Description>The most</Description>
 					</PetrolA92>
 				</Products>
@@ -52,16 +57,22 @@
 				</TemperatureRule>
 				<NoiseLevelInDecibels>50</NoiseLevelInDecibels>
 				<LoadCapacity>500</LoadCapacity>
-				<Name>Refrigerator</Name>
+				<ValueCapacity>500</ValueCapacity>
 				<CurrentLoading>100</CurrentLoading>
+				<CurrentLoadedValue>2</CurrentLoadedValue>
 				<Products>
-					<CocaCola>
-								<ColaTaste>
-									Orange
-								</ColaTaste>
+					<Milk>
+								<TemperatureRule type="TemperatureRule">
+										<MinimalTemperature>-10</MinimalTemperature>
+										<MaximumTemperature>-2</MaximumTemperature>
+								</TemperatureRule>
+								<MilkTaste>
+									Cow
+								</MilkTaste>
 								<Weight>100</Weight>
+								<Value>2</Value>
 								<Description>Very tasteful</Description>
-					</CocaCola>
+					</Milk>
 				</Products>
 			</Refrigerator>
 		</Semitrailers>
@@ -70,8 +81,9 @@
 						<PetrolPerHour>220,0</PetrolPerHour>
 						<Semitrailer type="TankTruck">
 								<LoadCapacity>200</LoadCapacity>
-								<Name>TankTruck</Name>
+								<ValueCapacity>200</ValueCapacity>
 								<CurrentLoading>100</CurrentLoading>
+								<CurrentLoadedValue>29</CurrentLoadedValue>
 								<Products>
 									<PetrolA92>
 										<ChemistryDangers>
@@ -80,6 +92,7 @@
 											<ChemistryDanger>Toxic</ChemistryDanger>
 										</ChemistryDangers>
 										<Weight>10</Weight>
+										<Value>1</Value>
 										<Description>Little</Description>
 									</PetrolA92>
 									<PetrolA92>
@@ -89,6 +102,7 @@
 											<ChemistryDanger>Toxic</ChemistryDanger>
 										</ChemistryDangers>
 										<Weight>20</Weight>
+										<Value>23</Value>
 										<Description>More</Description>
 									</PetrolA92>
 									<PetrolA92>
@@ -98,6 +112,7 @@
 											<ChemistryDanger>Toxic</ChemistryDanger>
 										</ChemistryDangers>
 										<Weight>30</Weight>
+										<Value>3</Value>
 										<Description>More</Description>
 									</PetrolA92>
 									<PetrolA92>
@@ -107,15 +122,18 @@
 											<ChemistryDanger>Toxic</ChemistryDanger>
 										</ChemistryDangers>
 										<Weight>40</Weight>
+										<Value>2</Value>
 										<Description>The most</Description>
 									</PetrolA92>
 								</Products>
 						</Semitrailer>
+						<SerialNumber>84400b61-6186-41bf-81b8-a3c80b1cef99</SerialNumber>
 			</ActrosMP2>
 			<ActrosMP3>
 						<PetrolPerHour>0</PetrolPerHour>
 						<Semitrailer type="">
 						</Semitrailer>
+						<SerialNumber>376977a0-3b64-4c9b-a78d-a641d3517467</SerialNumber>
 			</ActrosMP3>
 		</TruckTractors>
 	</CarPark>

@@ -2,14 +2,16 @@
 
 namespace TransportEnterprise.Models
 {
+    /// <summary>
+    /// Represents diesel instance
+    /// </summary>
     public class Diesel : Petrol
     {
-        public Diesel(decimal weight, ICollection<ChemistryDanger> chemistryDangers, string description = "Diesel petrol")
-            : base(weight, chemistryDangers, description)
-        {
-        }
-        protected Diesel(decimal weight, string description) :
-            base(weight, description)
+        /// <summary>
+        /// Initializes new diesel instance
+        /// </summary>
+        public Diesel(decimal weight, decimal value, ICollection<ChemistryDanger> chemistryDangers, string description)
+            : base(weight, value, chemistryDangers, description)
         {
         }
     }

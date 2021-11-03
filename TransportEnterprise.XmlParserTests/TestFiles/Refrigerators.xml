@@ -7,16 +7,22 @@
 		</TemperatureRule>
 		<NoiseLevelInDecibels>50</NoiseLevelInDecibels>
 		<LoadCapacity>500</LoadCapacity>
-		<Name>Refrigerator</Name>
+		<ValueCapacity>500</ValueCapacity>
 		<CurrentLoading>100</CurrentLoading>
+		<CurrentLoadedValue>2</CurrentLoadedValue>
 		<Products>
-			<CocaCola>
-						<ColaTaste>
-							Orange
-						</ColaTaste>
+			<Milk>
+						<TemperatureRule type="TemperatureRule">
+								<MinimalTemperature>-10</MinimalTemperature>
+								<MaximumTemperature>-2</MaximumTemperature>
+						</TemperatureRule>
+						<MilkTaste>
+							Cow
+						</MilkTaste>
 						<Weight>100</Weight>
+						<Value>2</Value>
 						<Description>Very tasteful</Description>
-			</CocaCola>
+			</Milk>
 		</Products>
 	</Refrigerator>
 </Refrigerators>

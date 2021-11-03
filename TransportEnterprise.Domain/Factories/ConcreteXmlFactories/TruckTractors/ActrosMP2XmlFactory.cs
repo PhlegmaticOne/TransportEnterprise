@@ -17,8 +17,9 @@ namespace TransportEnterprise.Models.Factories
 
         public ActrosMP2 Create()
         {
+            var serialNumber = _nodes.GetInnerText("SerialNumber");
             var factory = _abstractDomainFactoriesFactory.CreateFactory<Semitrailer>(_nodes.GetNode("Semitrailer"));
-            return new ActrosMP2(factory?.Create());
+            return new ActrosMP2(factory?.Create(), serialNumber);
         }
     }
 }

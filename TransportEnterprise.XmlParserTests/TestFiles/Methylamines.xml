@@ -9,6 +9,7 @@
 			<ChemistryDanger>Toxic</ChemistryDanger>
 		</ChemistryDangers>
 		<Weight>10</Weight>
+		<Value>2</Value>
 		<Description>Methylamine</Description>
 	</Methylamine>
 </Methylamines>

@@ -25,6 +25,6 @@ namespace TransportEnterprise.Models.Exceptions
         /// <summary>
         /// Message that describes reasons of throwing it
         /// </summary>
-        public override string Message => string.Format("{0}. Load capacity of semitrailer: {1:f4}. New weight: {2:f4}", _message, _loadCapacity, _newWeight);
+        public override string Message => string.Format("{0}. Max capacity of semitrailer: {1:f4}. New: {2:f4}", _message, _loadCapacity, _newWeight);
     }
 }

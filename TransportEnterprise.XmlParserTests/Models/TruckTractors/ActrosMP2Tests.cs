@@ -11,18 +11,18 @@ namespace TransportEnterprise.Models.Tests
         public void ActrosMP2SerializeTest()
         {
             var cd = new List<ChemistryDanger>() { ChemistryDanger.Flammable, ChemistryDanger.Explosive, ChemistryDanger.Toxic };
-            var petrol1 = new PetrolA92(10, cd, "Little");
-            var petrol2 = new PetrolA92(20, cd, "More");
-            var petrol3 = new PetrolA92(30, cd, "More");
-            var petrol4 = new PetrolA92(40, cd, "The most");
+            var petrol1 = new PetrolA92(10, 2, cd, "Little");
+            var petrol2 = new PetrolA92(20, 2, cd, "More");
+            var petrol3 = new PetrolA92(30, 2, cd, "More");
+            var petrol4 = new PetrolA92(40, 2, cd, "The most");
 
-            var tank = new TankTruck(200);
+            var tank = new TankTruck(200, 200);
             tank.Load(petrol1);
             tank.Load(petrol2);
             tank.Load(petrol3);
             tank.Load(petrol4);
 
-            var actrosmp2 = new ActrosMP2(tank);
+            var actrosmp2 = new ActrosMP2(tank, null);
 
             var path = new TransportEnterprise.Core.XmlTestsFilePathesGetter(actrosmp2.GetType()).GetFilePath();
             var serializer = new XmlParser.Serializers.XMLStreamWriterSerializer<ActrosMP2>(path);

@@ -3,6 +3,9 @@ using System.Xml;
 
 namespace TransportEnterprise.Models.Factories
 {
+    /// <summary>
+    /// Represents abstract factory for domain objects
+    /// </summary>
     public abstract class XmlAbstractDomainFactory<T> : IAbstractDomainFactory<T> where T : class
     {
         protected XmlNode Node;

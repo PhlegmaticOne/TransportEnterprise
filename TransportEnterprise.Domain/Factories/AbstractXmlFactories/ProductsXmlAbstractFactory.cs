@@ -10,6 +10,7 @@ namespace TransportEnterprise.Models.Factories
             {
                 { "Methylamine", new MethylamineXmlFactory(Node) },
                 { "CocaCola", new CocaColaXmlFactory(Node) },
+                { "Milk", new MilkXmlFactory(Node) },
                 { "PetrolA92", new PetrolXmlFactory(Node) }
             };
         }

@@ -2,18 +2,48 @@
 
 namespace TransportEnterprise.Models
 {
+    /// <summary>
+    /// Represents temperature rule instance
+    /// </summary>
     public class TemperatureRule : IEquatable<TemperatureRule>
     {
-        public TemperatureRule(int minimalTemperature, int maximumTemperature) => (MinimalTemperature, MaximumTemperature)
+        /// <summary>
+        /// Initializes new temperature rule instance with specified max and min temperature
+        /// </summary>
+        public TemperatureRule(double minimalTemperature, double maximumTemperature) => (MinimalTemperature, MaximumTemperature)
                                                                                 = (minimalTemperature, maximumTemperature);
-        public int MinimalTemperature { get; init; }
-        public int MaximumTemperature { get; init; }
-        public TemperatureRule ToKelvins() => new(MinimalTemperature + 273, MaximumTemperature + 273);
+        /// <summary>
+        /// Minimal temperature
+        /// </summary>
+        public double MinimalTemperature { get; init; }
+        /// <summary>
+        /// Maximum temperature
+        /// </summary>
+        public double MaximumTemperature { get; init; }
+        /// <summary>
+        /// Checks if current temperature rule is in the range of income temperature rule
+        /// </summary>
+        /// <param name="temperatureRule"></param>
         public bool IsInTheRange(TemperatureRule temperatureRule) => MinimalTemperature >= temperatureRule.MinimalTemperature &&
                                                                      MaximumTemperature <= temperatureRule.MaximumTemperature;
+        /// <summary>
+        /// Checks equality of current temperature rule with other temperatur erule
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public bool Equals(TemperatureRule other) => MinimalTemperature == other.MinimalTemperature && MaximumTemperature == other.MaximumTemperature;
+        /// <summary>
+        /// Checks equality of current temperature rule with other specified object
+        /// </summary>
         public override bool Equals(object obj) => obj is TemperatureRule temperatureRule && Equals(temperatureRule);
-        public override int GetHashCode() => MinimalTemperature * MaximumTemperature;
-        public override string ToString() => string.Format("[{0}, {1}]", MinimalTemperature, MaximumTemperature);
+        /// <summary>
+        /// Gets hash code of current temperature rule instance
+        /// </summary>
+        public override int GetHashCode() => (int)(MinimalTemperature * MaximumTemperature);
+        /// <summary>
+        /// Gets string representation of current temperature rule instance
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString() => string.Format("[{0:f2}; {1:f2}]", MinimalTemperature, MaximumTemperature);
     }
 }

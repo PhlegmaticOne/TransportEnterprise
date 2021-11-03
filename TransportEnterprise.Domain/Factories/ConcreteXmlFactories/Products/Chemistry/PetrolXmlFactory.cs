@@ -7,10 +7,7 @@ namespace TransportEnterprise.Models.Factories
     public class PetrolXmlFactory : IDomainFactory<PetrolA92>
     {
         private readonly ICollection<XmlNode> _nodes;
-        public PetrolXmlFactory(XmlNode node)
-        {
-            _nodes = node.ChildNodes.ToList();
-        }
+        public PetrolXmlFactory(XmlNode node) => _nodes = node.ChildNodes.ToList();
         public PetrolA92 Create()
         {
             var xmlDangers = _nodes.GetNode("ChemistryDangers");
@@ -21,7 +18,8 @@ namespace TransportEnterprise.Models.Factories
             }
             var weight = int.Parse(_nodes.GetInnerText("Weight"));
             var description = _nodes.GetInnerText("Description");
-            return new PetrolA92(weight, dangers, description);
+            var value = decimal.Parse(_nodes.GetInnerText("Value"));
+            return new PetrolA92(weight, value, dangers, description);
         }
     }
 }

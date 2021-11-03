@@ -18,8 +18,9 @@ namespace TransportEnterprise.Models.Factories
 
         public ActrosMP3 Create()
         {
+            var serialNumber = _nodes.GetInnerText("SerialNumber");
             var factory = _abstractDomainFactoriesFactory.CreateFactory<Semitrailer>(_nodes.GetNode("Semitrailer"));
-            return new ActrosMP3(factory?.Create());
+            return new ActrosMP3(factory?.Create(), serialNumber);
         }
     }
 }
