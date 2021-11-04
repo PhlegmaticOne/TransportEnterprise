@@ -24,10 +24,18 @@ namespace TransportEnterprise.Models
         /// <param name="other"></param>
         /// <returns></returns>
         public bool Equals(CocaCola other) => ColaTaste == other.ColaTaste && base.Equals(other);
-
+        /// <summary>
+        /// Checks equality of current coca cola with specified object
+        /// </summary>
         public override bool Equals(object obj) => Equals(obj as CocaCola);
-
+        /// <summary>
+        /// Gets hash code of coca cola
+        /// </summary>
         public override int GetHashCode() => base.GetHashCode();
+        /// <summary>
+        /// Gets string representation of coca cola
+        /// </summary>
+        /// <returns></returns>
         public override string ToString() => string.Format("{0}. {1}", ColaTaste, base.ToString());
     }
     /// <summary>

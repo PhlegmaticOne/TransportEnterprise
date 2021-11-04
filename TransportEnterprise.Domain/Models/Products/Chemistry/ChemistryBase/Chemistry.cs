@@ -11,6 +11,7 @@ namespace TransportEnterprise.Models
     /// </summary>
     public abstract class Chemistry : Product, IEquatable<Chemistry>
     {
+        protected readonly ICollection<ChemistryDanger> _chemistryDangers;
         /// <summary>
         /// Initializes new chemistry instance
         /// </summary>
@@ -19,7 +20,6 @@ namespace TransportEnterprise.Models
         /// <param name="description">Description</param>
         public Chemistry(decimal weight, decimal value, ICollection<ChemistryDanger> chemistryDangers, string description) :
                         base(weight, value, description) => _chemistryDangers = chemistryDangers;
-        private readonly ICollection<ChemistryDanger> _chemistryDangers;
         /// <summary>
         /// Chemistry dangers of current chemistry
         /// </summary>
@@ -38,6 +38,10 @@ namespace TransportEnterprise.Models
         /// Gets hash code of current chemistry instance
         /// </summary>
         public override int GetHashCode() => (int)(ChemistryDangers.GetHashCode() + Weight);
+        /// <summary>
+        /// Gets string representation of chemistry
+        /// </summary>
+        /// <returns></returns>
         public override string ToString() => string.Format("{0}. {1}", string.Join(',', ChemistryDangers), base.ToString());
     }
 }

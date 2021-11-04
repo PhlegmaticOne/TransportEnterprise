@@ -13,8 +13,10 @@ namespace TransportEnterprise.Models
         /// </summary>
         protected Product(decimal weight, decimal value, string description)
         {
-            Weight = weight >= 0 ? weight : throw new WeightException("Weight cannot be less or equal to zero", weight);
-            Value = value >= 0 ? value : throw new ArgumentException("Value cannot be less or equal to zero", nameof(value));
+            Weight = weight >= 0 ? weight :
+                throw new WeightException("Weight cannot be less or equal to zero", 0, weight);
+            Value = value >= 0 ? value :
+                throw new ArgumentException("Value cannot be less or equal to zero", nameof(value));
             Description = description;
         }
         /// <summary>
@@ -41,7 +43,11 @@ namespace TransportEnterprise.Models
         /// Gets string representaton of product
         /// </summary>
         public override string ToString() => string.Format("{0}. {1}. Weight: {2:f4}", GetType().Name, Description, Weight);
-
+        /// <summary>
+        /// Check equality of current product with other specified object
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object obj) => Equals(obj as Product);
     }
 }

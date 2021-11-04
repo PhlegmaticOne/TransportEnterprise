@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace TransportEnterprise.Models
 {
     /// <summary>
     /// Represents diesel instance
     /// </summary>
-    public class Diesel : Petrol
+    public class Diesel : Petrol, IEquatable<Diesel>
     {
         /// <summary>
         /// Initializes new diesel instance
@@ -14,5 +15,20 @@ namespace TransportEnterprise.Models
             : base(weight, value, chemistryDangers, description)
         {
         }
+        /// <summary>
+        /// Checks equality of two diesels
+        /// </summary>
+        public bool Equals(Diesel other) => base.Equals(other);
+        /// <summary>
+        /// Check equality of diesel with specified object
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(object obj) => Equals(obj as Diesel);
+        /// <summary>
+        /// Gets hash code of diesel
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode() => base.GetHashCode();
     }
 }

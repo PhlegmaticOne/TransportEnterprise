@@ -26,17 +26,21 @@ namespace TransportEnterprise.Models
         /// </summary>
         public CarPark(ICollection<Semitrailer> semitrailers, ICollection<TruckTractor> truckTractors)
         {
-            _semitrailers = semitrailers ?? throw new ArgumentNullException(nameof(semitrailers), "Semitrailers cannot be null");
-            _trackTractors = truckTractors ?? throw new ArgumentNullException(nameof(truckTractors), "Truck tractors cannot be null");
+            _semitrailers = semitrailers ??
+                throw new ArgumentNullException(nameof(semitrailers), "Semitrailers cannot be null");
+            _trackTractors = truckTractors ??
+                throw new ArgumentNullException(nameof(truckTractors), "Truck tractors cannot be null");
         }
         /// <summary>
         /// Collection of semitrailers of car park
         /// </summary>
-        public IReadOnlyCollection<Semitrailer> Semitrailers => new ReadOnlyCollection<Semitrailer>(_semitrailers.ToList());
+        public IReadOnlyCollection<Semitrailer> Semitrailers =>
+            new ReadOnlyCollection<Semitrailer>(_semitrailers.ToList());
         /// <summary>
         /// Collection of truck tracktors of car park
         /// </summary>
-        public IReadOnlyCollection<TruckTractor> TruckTractors => new ReadOnlyCollection<TruckTractor>(_trackTractors.ToList());
+        public IReadOnlyCollection<TruckTractor> TruckTractors =>
+            new ReadOnlyCollection<TruckTractor>(_trackTractors.ToList());
         /// <summary>
         /// Adds new semitrailer to car park
         /// </summary>
@@ -90,6 +94,7 @@ namespace TransportEnterprise.Models
         /// </summary>
         /// <returns></returns>
         public override string ToString() => 
-            string.Format("Car Park. Total semitrailers: {0}. Total track tractors: {1}", _semitrailers.Count, _trackTractors.Count);
+            string.Format("Car Park. Total semitrailers: {0}. Total track tractors: {1}",
+                          _semitrailers.Count, _trackTractors.Count);
     }
 }

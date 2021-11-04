@@ -12,7 +12,13 @@ namespace TransportEnterprise.Models
     /// </summary>
     public abstract class Semitrailer : IEquatable<Semitrailer>, IWithLoadingRules
     {
+        /// <summary>
+        /// Rules for adding new products
+        /// </summary>
         protected readonly LoadingRules _rules;
+        /// <summary>
+        /// Current collection of products in semitrailer
+        /// </summary>
         private readonly ICollection<Product> _products;
         /// <summary>
         /// Initializes new semitrailer instance with specified max load capacity and max load value
@@ -20,9 +26,9 @@ namespace TransportEnterprise.Models
         protected Semitrailer(decimal maxLoadWeight, decimal maxLoadValue)
         {
             LoadCapacity = maxLoadWeight > 0 ? maxLoadWeight :
-                throw new WeightException("Load mass capacity cannot be less or equal to zero", maxLoadWeight);
+                throw new WeightException("Load mass capacity cannot be less or equal to zero", 0, maxLoadWeight);
             ValueCapacity = maxLoadValue > 0 ? maxLoadValue :
-                throw new WeightException("Load value capacity cannot be less or equal to zero", maxLoadWeight);
+                throw new WeightException("Load value capacity cannot be less or equal to zero", 0, maxLoadWeight);
             _products = new List<Product>();
             _rules = new LoadingRules(new List<Func<Product, bool>>()
             {
@@ -76,7 +82,7 @@ namespace TransportEnterprise.Models
             }
         }
         /// <summary>
-        /// Unloads all products from smitriler
+        /// Unloads all products from semitriler
         /// </summary>
         public void UnloadAll() => _products.Clear();
         /// <summary>

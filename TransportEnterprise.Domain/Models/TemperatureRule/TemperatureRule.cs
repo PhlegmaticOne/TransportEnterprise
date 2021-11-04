@@ -27,6 +27,14 @@ namespace TransportEnterprise.Models
         public bool IsInTheRange(TemperatureRule temperatureRule) => MinimalTemperature >= temperatureRule.MinimalTemperature &&
                                                                      MaximumTemperature <= temperatureRule.MaximumTemperature;
         /// <summary>
+        /// Overloading == operator for temperature rule
+        /// </summary>
+        public static bool operator ==(TemperatureRule a, TemperatureRule b) => a.Equals(b);
+        /// <summary>
+        /// Overloading != operator for temperature rule
+        /// </summary>
+        public static bool operator !=(TemperatureRule a, TemperatureRule b) => !(a == b);
+        /// <summary>
         /// Checks equality of current temperature rule with other temperatur erule
         /// </summary>
         /// <param name="other"></param>
