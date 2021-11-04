@@ -1,37 +1,30 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 using System.Xml;
 using TransportEnterprise.Models.Extensions;
 
 namespace TransportEnterprise.Models.Factories
 {
-    public class RefrigeratorXmlFactory : IDomainFactory<Refrigerator>
+    public class RefrigeratorXmlFactory : SemitrailersBaseXmlFactory, IXmlDomainFactory<Refrigerator>
     {
-        private readonly ICollection<XmlNode> _nodes;
-        private readonly IXmlAbstractDomainFactoriesFactory _abstractDomainFactoriesFactory;
+        private readonly ITemperatureRuleXmlFactory _temperatureRuleXmlFactory;
 
-        public RefrigeratorXmlFactory(XmlNode node, IXmlAbstractDomainFactoriesFactory abstractDomainFactoriesFactory)
+        public RefrigeratorXmlFactory(IXmlAbstractDomainFactory<Product> productsAbstractXmlFactory,
+                                      ITemperatureRuleXmlFactory temperatureRuleXmlFactory) :
+                                      base(productsAbstractXmlFactory)
         {
-            _nodes = node.ChildNodes.ToList();
-            _abstractDomainFactoriesFactory = abstractDomainFactoriesFactory;
+            _temperatureRuleXmlFactory = temperatureRuleXmlFactory;
         }
-
-        public Refrigerator Create()
+        public Refrigerator Create(XmlNode node)
         {
-            var loadCapacity = decimal.Parse(_nodes.GetInnerText("LoadCapacity"));
-            var valueCapacity = decimal.Parse(_nodes.GetInnerText("ValueCapacity"));
-            var noiseDb = int.Parse(_nodes.GetInnerText("NoiseLevelInDecibels"));
-            var xmlProducts = _nodes.GetNode("Products");
-            var temperatureNode = _nodes.GetNode("TemperatureRule").ChildNodes.ToList();
-            var temperatureRule = new TemperatureRule(
-                double.Parse(temperatureNode.GetInnerText("MinimalTemperature")),
-                double.Parse(temperatureNode.GetInnerText("MaximumTemperature"))
-                );
+            var nodes = node.ChildNodes.ToList();
+            var (loadCapacity, valueCapacity, products) = GetSemitrailerParameters(nodes);
+            var noiseDb = int.Parse(nodes.GetInnerText("NoiseLevelInDecibels"));
+            var temperatureRule = _temperatureRuleXmlFactory.Create(nodes.GetNode("TemperatureRule"));
             var refrigerator = new Refrigerator(loadCapacity, valueCapacity, temperatureRule, noiseDb);
-            foreach (XmlNode product in xmlProducts)
+            foreach (var product in products)
             {
-                var factory = _abstractDomainFactoriesFactory.CreateFactory<Product>(product);
-                refrigerator.Load(factory.Create());
+                refrigerator.Load(product);
             }
             return refrigerator;
         }

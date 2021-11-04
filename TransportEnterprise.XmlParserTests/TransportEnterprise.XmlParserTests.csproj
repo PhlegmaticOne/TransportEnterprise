@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Models\CarPark\" />
     <Folder Include="TestFiles\" />
   </ItemGroup>
 

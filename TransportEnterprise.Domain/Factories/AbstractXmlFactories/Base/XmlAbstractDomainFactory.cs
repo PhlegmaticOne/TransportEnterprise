@@ -6,26 +6,23 @@ namespace TransportEnterprise.Models.Factories
     /// <summary>
     /// Represents abstract factory for domain objects
     /// </summary>
-    public abstract class XmlAbstractDomainFactory<T> : IAbstractDomainFactory<T> where T : class
+    public abstract class XmlAbstractDomainFactory<T> : IXmlAbstractDomainFactory<T> where T : class
     {
-        protected XmlNode Node;
-        protected Dictionary<string, IDomainFactory<T>> Factories;
-        public XmlAbstractDomainFactory(XmlNode node)
-        {
-            Node = node;
-        }
+        protected Dictionary<string, IXmlDomainFactory<T>> Factories;
         protected abstract void InitializeFactories();
-        public T Create()
+        public IXmlDomainFactory<T> GetFactory(XmlNode node)
         {
-            if (Factories.TryGetValue(Node.Name, out IDomainFactory<T> factory))
+            if(Factories.TryGetValue(node.Name, out IXmlDomainFactory<T> domainFactoryFromName))
             {
-                return factory.Create();
+                return domainFactoryFromName;
             }
-            else if(Factories.TryGetValue(Node.Attributes[0].Value, out IDomainFactory<T> factory1))
+            if(Factories.TryGetValue(node.Attributes[0].Value, out IXmlDomainFactory<T> domainFactoryFromAttribute))
             {
-                return factory1.Create();
+                return domainFactoryFromAttribute;
             }
             return null;
         }
+
+        public IEnumerable<IXmlDomainFactory<T>> GetAllFactories() => Factories.Values;
     }
 }

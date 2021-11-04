@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TransportEnterprise.Core;
 using TransportEnterprise.XmlParser.Serializers;
 using TransportEnterprise.XmlParser.Deserializers;
-using TransportEnterprise.Models.Factories.AbstractXmlFactories;
+using TransportEnterprise.Models.Factories;
 
 namespace TransportEnterprise.Models.Tests
 {
@@ -23,8 +23,10 @@ namespace TransportEnterprise.Models.Tests
         public void MethylamineDeserializeTest()
         {
             var path = new XmlTestsFilePathesGetter(typeof(Methylamine)).GetFilePath();
-            var factory = new XmlAbstractDomainFactoriesFactory();
-            var deserializer = new XMLXmlReaderDeserializer<Product>(path, factory);
+            var petrolFactory = new PetrolXmlAbstractFactory();
+            var temperatureFactory = new TemperatureRuleXmlFactory();
+            var chemistryFactory = new ChemistryXmlAbstractFactory(petrolFactory, temperatureFactory);
+            var deserializer = new XMLXmlReaderDeserializer<Methylamine, Chemistry>(path, chemistryFactory);
             var entity = deserializer.Where(m => m.Weight == 10);
             Assert.IsTrue(entity.Count == 1);
         }

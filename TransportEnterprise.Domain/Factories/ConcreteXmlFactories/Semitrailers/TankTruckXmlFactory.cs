@@ -1,31 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
 using TransportEnterprise.Models.Extensions;
 
 namespace TransportEnterprise.Models.Factories
 {
-    public class TankTruckXmlFactory : IDomainFactory<TankTruck>
+    public class TankTruckXmlFactory : SemitrailersBaseXmlFactory, IXmlDomainFactory<TankTruck>
     {
-        private readonly ICollection<XmlNode> _nodes;
-        private readonly IXmlAbstractDomainFactoriesFactory _abstractDomainFactoriesFactory;
-
-        public TankTruckXmlFactory(XmlNode node, IXmlAbstractDomainFactoriesFactory abstractDomainFactoriesFactory)
+        public TankTruckXmlFactory(IXmlAbstractDomainFactory<Product> productsAbstractXmlFactory) :
+                                   base(productsAbstractXmlFactory)
         {
-            _nodes = node.ChildNodes.ToList();
-            _abstractDomainFactoriesFactory = abstractDomainFactoriesFactory;
         }
-        public TankTruck Create()
+        public TankTruck Create(XmlNode node)
         {
-            var loadCapacity = decimal.Parse(_nodes.GetInnerText("LoadCapacity"));
-            var valueCapacity = decimal.Parse(_nodes.GetInnerText("ValueCapacity"));
-            var xmlProducts = _nodes.GetNode("Products");
+            var nodes = node.ChildNodes.ToList();
+            var (loadCapacity, valueCapacity, products) = GetSemitrailerParameters(nodes);
             var tankTruck = new TankTruck(loadCapacity, valueCapacity);
-            foreach (XmlNode product in xmlProducts)
+            foreach (var product in products)
             {
-                var factory = _abstractDomainFactoriesFactory.CreateFactory<Product>(product);
-                tankTruck.Load(factory.Create());
+                tankTruck.Load(product);
             }
             return tankTruck;
         }

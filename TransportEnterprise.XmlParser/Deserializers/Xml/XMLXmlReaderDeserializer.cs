@@ -3,15 +3,16 @@ using TransportEnterprise.Models.Factories;
 
 namespace TransportEnterprise.XmlParser.Deserializers
 {
-    public class XMLXmlReaderDeserializer<T> : XMLDeserializer<T> where T : class
+    public class XMLXmlReaderDeserializer<TEntity, TBaseType> : XMLDeserializer<TEntity, TBaseType>
+                                                                where TEntity: class, TBaseType
+                                                                where TBaseType: class
     {
-        public XMLXmlReaderDeserializer(string filePath, IXmlAbstractDomainFactoriesFactory factory) : base(filePath, factory) { }
+        public XMLXmlReaderDeserializer(string filePath, IXmlAbstractDomainFactory<TBaseType> xmlAbstractDomainFactory) :
+            base(filePath, xmlAbstractDomainFactory) { }
         protected override void Load()
         {
-            using (var xmlr = XmlReader.Create(FilePath))
-            {
-                XmlDocument.Load(xmlr);
-            }
+            using var xmlr = XmlReader.Create(FilePath);
+            XmlDocument.Load(xmlr);
         }
     }
 }

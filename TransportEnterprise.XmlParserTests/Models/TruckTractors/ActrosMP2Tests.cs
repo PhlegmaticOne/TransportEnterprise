@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using TransportEnterprise.Models.Factories.AbstractXmlFactories;
+using TransportEnterprise.Models.Factories;
+using TransportEnterprise.XmlParser.Deserializers;
 
 namespace TransportEnterprise.Models.Tests
 {
@@ -34,8 +35,18 @@ namespace TransportEnterprise.Models.Tests
         public void ActrosMP2DeserializeTest()
         {
             var path = new TransportEnterprise.Core.XmlTestsFilePathesGetter(typeof(ActrosMP2)).GetFilePath();
-            var factory = new XmlAbstractDomainFactoriesFactory();
-            var deserializer = new XmlParser.Deserializers.XMLStreamReaderDeserializer<TruckTractor>(path, factory);
+
+            #region Init
+            var temperarureXmlFactory = new TemperatureRuleXmlFactory();
+            var customerGoodsFactory = new CustomerGoodsAbstractXmlFactory(temperarureXmlFactory);
+            var petrolFactory = new PetrolXmlAbstractFactory();
+            var chemistryFactory = new ChemistryXmlAbstractFactory(petrolFactory, temperarureXmlFactory);
+            var productFactory = new ProductsXmlAbstractFactory(chemistryFactory, customerGoodsFactory);
+            var semitrailersFactory = new SemitrailersXmlAbstractFactory(productFactory, temperarureXmlFactory);
+            #endregion
+            var factory = new TruckTractorsXmlAbstractFactory(semitrailersFactory);
+
+            var deserializer = new XMLStreamReaderDeserializer<ActrosMP2, TruckTractor>(path, factory);
 
             var all = deserializer.All();
 

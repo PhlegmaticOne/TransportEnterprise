@@ -4,30 +4,32 @@ using TransportEnterprise.Models.Extensions;
 
 namespace TransportEnterprise.Models.Factories
 {
-    public class CarParkXmlFactory : IDomainFactory<CarPark>
+    public class CarParkXmlFactory : IXmlDomainFactory<CarPark>
     {
-        private readonly ICollection<XmlNode> _nodes;
-        private readonly IXmlAbstractDomainFactoriesFactory _abstractDomainFactoriesFactory;
+        private readonly IXmlAbstractDomainFactory<Semitrailer> _semitrailersFactory;
+        private readonly IXmlAbstractDomainFactory<TruckTractor> _truckTractorsFactory;
 
-        public CarParkXmlFactory(XmlNode node, IXmlAbstractDomainFactoriesFactory abstractDomainFactoriesFactory)
+        public CarParkXmlFactory(IXmlAbstractDomainFactory<Semitrailer> semitrailersFactory,
+                                 IXmlAbstractDomainFactory<TruckTractor> truckTractorsFactory)
         {
-            _nodes = node.ChildNodes.ToList();
-            _abstractDomainFactoriesFactory = abstractDomainFactoriesFactory;
+            _semitrailersFactory = semitrailersFactory;
+            _truckTractorsFactory = truckTractorsFactory;
         }
 
-        public CarPark Create()
+        public CarPark Create(XmlNode node)
         {
+            var nodes = node.ChildNodes.ToList();
             var semitrailers = new List<Semitrailer>();
-            foreach (XmlNode semitrailerXmlNode in _nodes.GetNode("Semitrailers").ChildNodes)
+            foreach (XmlNode semitrailerXmlNode in nodes.GetNode("Semitrailers").ChildNodes)
             {
-                var semitrailersFactory = _abstractDomainFactoriesFactory.CreateFactory<Semitrailer>(semitrailerXmlNode);
-                semitrailers.Add(semitrailersFactory.Create());
+                var semitrailersFactory = _semitrailersFactory.GetFactory(semitrailerXmlNode);
+                semitrailers.Add(semitrailersFactory.Create(semitrailerXmlNode));
             }
             var truckTractors = new List<TruckTractor>();
-            foreach (XmlNode truckTractorXmlNode in _nodes.GetNode("TruckTractors").ChildNodes)
+            foreach (XmlNode truckTractorXmlNode in nodes.GetNode("TruckTractors").ChildNodes)
             {
-                var truckTractorsFactory = _abstractDomainFactoriesFactory.CreateFactory<TruckTractor>(truckTractorXmlNode);
-                truckTractors.Add(truckTractorsFactory.Create());
+                var truckTractorsFactory = _truckTractorsFactory.GetFactory(truckTractorXmlNode);
+                truckTractors.Add(truckTractorsFactory.Create(truckTractorXmlNode));
             }
             return new CarPark(semitrailers, truckTractors);
         }

@@ -1,20 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Xml;
+﻿using System.Xml;
 using TransportEnterprise.Models.Extensions;
 
 namespace TransportEnterprise.Models.Factories
 {
-    public class CocaColaXmlFactory : IDomainFactory<CocaCola>
+    public class CocaColaXmlFactory : ProductsBaseXmlFactory, IXmlDomainFactory<CocaCola>
     {
-        private readonly ICollection<XmlNode> _nodes;
-        public CocaColaXmlFactory(XmlNode node) => _nodes = node.ChildNodes.ToList();
-        public CocaCola Create()
+        public CocaCola Create(XmlNode node)
         {
-            var weight = decimal.Parse(_nodes.GetInnerText("Weight"));
-            var value = decimal.Parse(_nodes.GetInnerText("Value"));
-            var description = _nodes.GetInnerText("Description");
-            var cocaColaTaste = _nodes.GetNode("ColaTaste").ToCocaColaTaste();
+            var nodes = node.ChildNodes.ToList();
+            var (weight, value, description) = GetProductParameters(nodes);
+            var cocaColaTaste = nodes.GetNode("ColaTaste").ToCocaColaTaste();
             return new CocaCola(weight, value, description, cocaColaTaste);
         }
     }

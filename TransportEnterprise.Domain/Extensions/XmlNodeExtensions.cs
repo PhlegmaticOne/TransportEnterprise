@@ -27,5 +27,20 @@ namespace TransportEnterprise.Models.Extensions
             "Soy" => MilkTaste.Soy,
             _ => MilkTaste.Cow
         };
+        public static SausageType ToSausageType(this XmlNode xmlNode) => xmlNode.InnerText.Trim('\t', '\n', '\r') switch
+        {
+            "Cow" => SausageType.Cow,
+            "Chicken" => SausageType.Chicken,
+            "Pork" => SausageType.Pork,
+            _ => SausageType.Soy
+        }; 
+        public static FurniturePurpose ToFurniturePurpose(this XmlNode xmlNode) => xmlNode.InnerText.Trim('\t', '\n', '\r') switch
+        {
+            "Kitchen" => FurniturePurpose.Kitchen,
+            "Bedroom" => FurniturePurpose.Bedroom,
+            "Bathroom" => FurniturePurpose.Bathroom,
+            "Hall" => FurniturePurpose.Hall,
+            _ => FurniturePurpose.Kitchen,
+        };
     }
 }

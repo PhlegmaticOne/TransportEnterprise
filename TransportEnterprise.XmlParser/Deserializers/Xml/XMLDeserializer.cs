@@ -3,39 +3,39 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 using TransportEnterprise.Models.Factories;
-using TransportEnterprise.Models.Factories.AbstractXmlFactories;
 
 namespace TransportEnterprise.XmlParser.Deserializers
 {
-    public abstract class XMLDeserializer<T> : Deserializer<T> where T: class
+    public abstract class XMLDeserializer<TEntity, TBaseType> : Deserializer<TEntity>
+                                                                where TEntity : class, TBaseType
+                                                                where TBaseType: class
     {
         protected readonly XmlDocument XmlDocument;
         protected readonly string FilePath;
-        private readonly IXmlAbstractDomainFactoriesFactory _abstractDomainFactoriesFactory;
+        private readonly IXmlAbstractDomainFactory<TBaseType> _xmlAbstractDomainFactory;
 
-        public XMLDeserializer(string filePath, IXmlAbstractDomainFactoriesFactory abstractDomainFactoriesFactory)
+        public XMLDeserializer(string filePath, IXmlAbstractDomainFactory<TBaseType> xmlAbstractDomainFactory)
         {
             if(File.Exists(filePath) == false)
             {
                 throw new FileNotFoundException("File does not exist", filePath);
             }
             FilePath = filePath;
-            _abstractDomainFactoriesFactory = abstractDomainFactoriesFactory;
+            _xmlAbstractDomainFactory = xmlAbstractDomainFactory;
             XmlDocument = new XmlDocument();
             Load();
         }
         protected abstract void Load();
-        public override ICollection<T> All()
+        public override ICollection<TEntity> All()
         {
-            var result = new List<T>();
+            var result = new List<TEntity>();
             foreach (XmlNode entity in XmlDocument.LastChild.ChildNodes)
             {
-                var factory = _abstractDomainFactoriesFactory.CreateFactory<T>(entity);
-                result.Add(factory.Create());
+                result.Add(_xmlAbstractDomainFactory.GetFactory(entity).Create(entity) as TEntity);
             }
             return result;
         }
-        public override T FirstOrDefault(Func<T, bool> predicate)
+        public override TEntity FirstOrDefault(Func<TEntity, bool> predicate)
         {
             foreach (var entity in All())
             {
@@ -46,9 +46,9 @@ namespace TransportEnterprise.XmlParser.Deserializers
             }
             return null;
         }
-        public override ICollection<T> Where(Func<T, bool> predicate)
+        public override ICollection<TEntity> Where(Func<TEntity, bool> predicate)
         {
-            var result = new List<T>();
+            var result = new List<TEntity>();
             foreach (var entity in All())
             {
                 if (predicate.Invoke(entity))

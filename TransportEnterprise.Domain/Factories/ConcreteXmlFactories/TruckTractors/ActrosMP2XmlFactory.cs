@@ -1,25 +1,20 @@
-﻿using System.Collections.Generic;
-using System.Xml;
+﻿using System.Xml;
 using TransportEnterprise.Models.Extensions;
 
 namespace TransportEnterprise.Models.Factories
 {
-    public class ActrosMP2XmlFactory : IDomainFactory<ActrosMP2>
+    public class ActrosMP2XmlFactory : TruckTractorsBaseXmlFactory, IXmlDomainFactory<ActrosMP2>
     {
-        private readonly ICollection<XmlNode> _nodes;
-        private readonly IXmlAbstractDomainFactoriesFactory _abstractDomainFactoriesFactory;
-
-        public ActrosMP2XmlFactory(XmlNode node, IXmlAbstractDomainFactoriesFactory abstractDomainFactoriesFactory)
+        public ActrosMP2XmlFactory(IXmlAbstractDomainFactory<Semitrailer> semitrailerAbstractXmlFactory) :
+                                   base(semitrailerAbstractXmlFactory)
         {
-            _nodes = node.ChildNodes.ToList();
-            _abstractDomainFactoriesFactory = abstractDomainFactoriesFactory;
         }
 
-        public ActrosMP2 Create()
+        public ActrosMP2 Create(XmlNode node)
         {
-            var serialNumber = _nodes.GetInnerText("SerialNumber");
-            var factory = _abstractDomainFactoriesFactory.CreateFactory<Semitrailer>(_nodes.GetNode("Semitrailer"));
-            return new ActrosMP2(factory?.Create(), serialNumber);
+            var nodes = node.ChildNodes.ToList();
+            (string serialNumber, Semitrailer semitrailer) = GetTruckTractorParameters(nodes);
+            return new ActrosMP2(semitrailer, serialNumber);
         }
     }
 }
