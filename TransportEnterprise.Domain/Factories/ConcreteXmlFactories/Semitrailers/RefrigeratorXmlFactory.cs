@@ -20,7 +20,7 @@ namespace TransportEnterprise.Models.Factories
             var nodes = node.ChildNodes.ToList();
             var (loadCapacity, valueCapacity, products) = GetSemitrailerParameters(nodes);
             var noiseDb = int.Parse(nodes.GetInnerText("NoiseLevelInDecibels"));
-            var temperatureRule = _temperatureRuleXmlFactory.Create(nodes.GetNode("TemperatureRule"));
+            var temperatureRule = _temperatureRuleXmlFactory.CreateTemperatureRule(nodes.GetNode("TemperatureRule"));
             var refrigerator = new Refrigerator(loadCapacity, valueCapacity, temperatureRule, noiseDb);
             foreach (var product in products)
             {

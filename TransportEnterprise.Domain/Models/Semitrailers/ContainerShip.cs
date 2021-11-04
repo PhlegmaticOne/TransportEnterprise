@@ -4,7 +4,7 @@
     {
         public ContainerShip(decimal maxLoadWeight, decimal maxLoadValue) : base(maxLoadWeight, maxLoadValue)
         {
-            _rules.AddRange((product) => product is Furniture);
+            _rules.AddRange((product) => product.Weight >= 100);
         }
     }
 }

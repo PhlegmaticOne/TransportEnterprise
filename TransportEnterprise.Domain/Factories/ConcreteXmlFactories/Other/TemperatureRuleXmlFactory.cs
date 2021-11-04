@@ -6,7 +6,7 @@ namespace TransportEnterprise.Models.Factories
 {
     public class TemperatureRuleXmlFactory : ITemperatureRuleXmlFactory
     {
-        public TemperatureRule Create(XmlNode node)
+        public TemperatureRule CreateTemperatureRule(XmlNode node)
         {
             var temperatureNode = node.ChildNodes.ToList();
             return new TemperatureRule(

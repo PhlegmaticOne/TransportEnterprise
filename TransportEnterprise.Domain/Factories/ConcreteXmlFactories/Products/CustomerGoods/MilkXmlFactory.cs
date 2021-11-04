@@ -16,7 +16,7 @@ namespace TransportEnterprise.Models.Factories
             var nodes = node.ChildNodes.ToList();
             var (weight, value, description) = GetProductParameters(nodes);
             var milkTaste = nodes.GetNode("MilkTaste").ToMilkTaste();
-            var temperatureRule = _temperatureRuleXmlFactory.Create(nodes.GetNode("TemperatureRule"));
+            var temperatureRule = _temperatureRuleXmlFactory.CreateTemperatureRule(nodes.GetNode("TemperatureRule"));
             return new Milk(weight, value, description, temperatureRule, milkTaste);
         }
     }

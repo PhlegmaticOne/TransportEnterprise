@@ -4,6 +4,6 @@ namespace TransportEnterprise.Models.Factories
 {
     public interface ITemperatureRuleXmlFactory
     {
-        TemperatureRule Create(XmlNode node);
+        TemperatureRule CreateTemperatureRule(XmlNode node);
     }
 }

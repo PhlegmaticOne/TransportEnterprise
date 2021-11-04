@@ -16,7 +16,7 @@ namespace TransportEnterprise.Models.Factories.ConcreteXmlFactories.Products.Cus
             var nodes = node.ChildNodes.ToList();
             var (weight, value, description) = GetProductParameters(nodes);
             var sausageType = nodes.GetNode("SausageType").ToSausageType();
-            var temperatureRule = _temperatureRuleXmlFactory.Create(nodes.GetNode("TemperatureRule"));
+            var temperatureRule = _temperatureRuleXmlFactory.CreateTemperatureRule(nodes.GetNode("TemperatureRule"));
             return new Sausage(weight, value, description, sausageType, temperatureRule);
         }
     }

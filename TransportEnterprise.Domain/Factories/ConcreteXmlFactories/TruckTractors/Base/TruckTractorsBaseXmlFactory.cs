@@ -15,7 +15,7 @@ namespace TransportEnterprise.Models.Factories
         {
             var semitrailerNode = nodes.GetNode("Semitrailer");
             return (nodes.GetInnerText("SerialNumber"),
-                    _semitrailersXmlAbstractFactory.GetFactory(semitrailerNode).Create(semitrailerNode));
+                    _semitrailersXmlAbstractFactory.GetFactory(semitrailerNode)?.Create(semitrailerNode));
         }
     }
 }

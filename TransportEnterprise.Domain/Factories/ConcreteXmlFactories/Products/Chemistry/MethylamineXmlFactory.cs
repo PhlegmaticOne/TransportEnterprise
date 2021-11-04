@@ -17,7 +17,7 @@ namespace TransportEnterprise.Models.Factories
         {
             var nodes = node.ChildNodes.ToList();
             var (weight, value, description, dangers) = GetChemistryParameters(nodes);
-            var temperatureRule = _temperatureRuleXmlFactory.Create(nodes.GetNode("TemperatureRule"));
+            var temperatureRule = _temperatureRuleXmlFactory.CreateTemperatureRule(nodes.GetNode("TemperatureRule"));
             return new Methylamine(weight, value, dangers, temperatureRule, description);
         }
     }

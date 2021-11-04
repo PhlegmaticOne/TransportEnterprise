@@ -2,22 +2,23 @@
 {
     public class SemitrailersXmlAbstractFactory : XmlAbstractDomainFactory<Semitrailer>
     {
-        private readonly IXmlAbstractDomainFactory<Product> _productsAbstractXmlFactory;
-        private readonly ITemperatureRuleXmlFactory _temperatureRuleXmlFactory;
+        protected readonly IXmlAbstractDomainFactory<Product> ProductsAbstractXmlFactory;
+        protected readonly ITemperatureRuleXmlFactory TemperatureRuleXmlFactory;
 
         public SemitrailersXmlAbstractFactory(IXmlAbstractDomainFactory<Product> productsAbstractXmlFactory,
                                               ITemperatureRuleXmlFactory temperatureRuleXmlFactory)
         {
-            _productsAbstractXmlFactory = productsAbstractXmlFactory;
-            _temperatureRuleXmlFactory = temperatureRuleXmlFactory;
+            ProductsAbstractXmlFactory = productsAbstractXmlFactory;
+            TemperatureRuleXmlFactory = temperatureRuleXmlFactory;
             InitializeFactories();
         }
         protected override void InitializeFactories()
         {
             Factories = new()
             {
-                { "Refrigerator", new RefrigeratorXmlFactory(_productsAbstractXmlFactory, _temperatureRuleXmlFactory) },
-                { "TankTruck", new TankTruckXmlFactory(_productsAbstractXmlFactory) }
+                { "Refrigerator", new RefrigeratorXmlFactory(ProductsAbstractXmlFactory, TemperatureRuleXmlFactory) },
+                { "TankTruck", new TankTruckXmlFactory(ProductsAbstractXmlFactory) },
+                { "TiltSemitrailer", new TiltSemitrailerXmlFactory(ProductsAbstractXmlFactory) }
             };
         }
     }

@@ -1,29 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Xml;
 using TransportEnterprise.Models.Extensions;
 
 namespace TransportEnterprise.Models.Factories
 {
-    //public class FurnitureBaseXmlFactory : ProductsBaseXmlFactory
-    //{
-    //    public FurnitureBaseXmlFactory(XmlNode node) : base(node)
-    //    {
-    //    }
-    //    protected sealed override void Intialize()
-    //    {
-    //        base.Intialize();
-    //        var material = Nodes.GetNode("Material").ChildNodes.ToList();
-    //        var materialPrice = material.GetInnerText("Price");
-    //        var materialType = material.GetInnerText("MaterialType");
-    //        var furniturePurpose = Nodes.GetNode("FurnirurePurpose").ToFurniturePurpose();
-    //        ProductsParameters.Add("FurniturePurpose", furniturePurpose);
-    //        ProductsParameters.Add("Price", materialPrice);
-    //        ProductsParameters.Add("MaterialType", materialType);
-    //    }
-    //}
+    public class FurnitureBaseXmlFactory : ProductsBaseXmlFactory
+    {
+        protected readonly IAbstractMaterialXmlFactory<Material> AbstractMaterialXmlFactory;
+
+        public FurnitureBaseXmlFactory(IAbstractMaterialXmlFactory<Material> abstractMaterialXmlFactory)
+        {
+            AbstractMaterialXmlFactory = abstractMaterialXmlFactory;
+        }
+        protected (decimal, decimal, string, FurniturePurpose, Material) GetFurnitureParameters(ICollection<XmlNode> nodes)
+        {
+            var (weight, value, description) = GetProductParameters(nodes);
+            var materialNode = nodes.GetNode("Material");
+            return (weight, value, description, nodes.GetNode("FurniturePurpose").ToFurniturePurpose(),
+                    AbstractMaterialXmlFactory.CreateMaterialFactory(materialNode).CreateMaterial(materialNode));
+        }
+    }
 }

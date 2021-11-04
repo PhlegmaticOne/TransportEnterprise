@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CarParks>
+	<CarPark>
+		<Semitrailers>
+			<Refrigerator>
+				<TemperatureRule type="TemperatureRule">
+						<MinimalTemperature>-100</MinimalTemperature>
+						<MaximumTemperature>100</MaximumTemperature>
+				</TemperatureRule>
+				<NoiseLevelInDecibels>30</NoiseLevelInDecibels>
+				<LoadCapacity>300</LoadCapacity>
+				<ValueCapacity>300</ValueCapacity>
+				<CurrentLoading>100</CurrentLoading>
+				<CurrentLoadedValue>2</CurrentLoadedValue>
+				<Products>
+					<Milk>
+								<TemperatureRule type="TemperatureRule">
+										<MinimalTemperature>-10</MinimalTemperature>
+										<MaximumTemperature>-2</MaximumTemperature>
+								</TemperatureRule>
+								<MilkTaste>
+									Cow
+								</MilkTaste>
+								<Weight>100</Weight>
+								<Value>2</Value>
+								<Description>Very tasteful</Description>
+					</Milk>
+				</Products>
+			</Refrigerator>
+			<Refrigerator>
+				<TemperatureRule type="TemperatureRule">
+						<MinimalTemperature>-10</MinimalTemperature>
+						<MaximumTemperature>10</MaximumTemperature>
+				</TemperatureRule>
+				<NoiseLevelInDecibels>30</NoiseLevelInDecibels>
+				<LoadCapacity>300</LoadCapacity>
+				<ValueCapacity>300</ValueCapacity>
+				<CurrentLoading>100</CurrentLoading>
+				<CurrentLoadedValue>2</CurrentLoadedValue>
+				<Products>
+					<Milk>
+								<TemperatureRule type="TemperatureRule">
+										<MinimalTemperature>-10</MinimalTemperature>
+										<MaximumTemperature>-2</MaximumTemperature>
+								</TemperatureRule>
+								<MilkTaste>
+									Cow
+								</MilkTaste>
+								<Weight>100</Weight>
+								<Value>2</Value>
+								<Description>Very tasteful</Description>
+					</Milk>
+				</Products>
+			</Refrigerator>
+			<TankTruck>
+				<LoadCapacity>500</LoadCapacity>
+				<ValueCapacity>200</ValueCapacity>
+				<CurrentLoading>0</CurrentLoading>
+				<CurrentLoadedValue>0</CurrentLoadedValue>
+				<Products>
+				</Products>
+			</TankTruck>
+			<TiltSemitrailer>
+				<LoadCapacity>1000</LoadCapacity>
+				<ValueCapacity>1000</ValueCapacity>
+				<CurrentLoading>0</CurrentLoading>
+				<CurrentLoadedValue>0</CurrentLoadedValue>
+				<Products>
+				</Products>
+			</TiltSemitrailer>
+		</Semitrailers>
+		<TruckTractors>
+			<ActrosMP2>
+						<PetrolPerHour>0</PetrolPerHour>
+						<Semitrailer type="">
+						</Semitrailer>
+						<SerialNumber>S8D8D3</SerialNumber>
+			</ActrosMP2>
+			<ActrosMP2>
+						<PetrolPerHour>0</PetrolPerHour>
+						<Semitrailer type="">
+						</Semitrailer>
+						<SerialNumber>S8D8D4</SerialNumber>
+			</ActrosMP2>
+			<ActrosMP3>
+						<PetrolPerHour>0</PetrolPerHour>
+						<Semitrailer type="">
+						</Semitrailer>
+						<SerialNumber>S9D8D4</SerialNumber>
+			</ActrosMP3>
+			<ActrosMP3>
+						<PetrolPerHour>0</PetrolPerHour>
+						<Semitrailer type="">
+						</Semitrailer>
+						<SerialNumber>S9D8D4</SerialNumber>
+			</ActrosMP3>
+		</TruckTractors>
+	</CarPark>
+</CarParks>
