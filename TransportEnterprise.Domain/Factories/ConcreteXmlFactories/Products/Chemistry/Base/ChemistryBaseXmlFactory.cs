@@ -4,9 +4,16 @@ using TransportEnterprise.Models.Extensions;
 
 namespace TransportEnterprise.Models.Factories
 {
+    /// <summary>
+    /// Represents chemistry base xml factory
+    /// </summary>
     public class ChemistryBaseXmlFactory : ProductsBaseXmlFactory
     {
-        protected static (decimal, decimal, string, ICollection<ChemistryDanger>) GetChemistryParameters(ICollection<XmlNode> nodes)
+        /// <summary>
+        /// Gets properties values of chemistry base type from xml node
+        /// </summary>
+        protected static (decimal, decimal, string, ICollection<ChemistryDanger>)
+                          GetChemistryParameters(ICollection<XmlNode> nodes)
         {
             var (weight, value, description) = GetProductParameters(nodes);
             var xmlDangers = nodes.GetNode("ChemistryDangers");

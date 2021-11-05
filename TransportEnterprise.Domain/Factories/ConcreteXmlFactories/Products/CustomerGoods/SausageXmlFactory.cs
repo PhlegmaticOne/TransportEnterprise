@@ -3,14 +3,24 @@ using TransportEnterprise.Models.Extensions;
 
 namespace TransportEnterprise.Models.Factories.ConcreteXmlFactories.Products.CustomerGoods
 {
+    /// <summary>
+    /// Represents sausage xml factory
+    /// </summary>
     public class SausageXmlFactory : ProductsBaseXmlFactory, IXmlDomainFactory<Sausage>
     {
+        /// <summary>
+        /// Temperature rule xml factory
+        /// </summary>
         private readonly ITemperatureRuleXmlFactory _temperatureRuleXmlFactory;
-
-        public SausageXmlFactory(ITemperatureRuleXmlFactory temperatureRuleXmlFactory)
-        {
+        /// <summary>
+        /// Initializes new sausage xml factory instance
+        /// </summary>
+        /// <param name="temperatureRuleXmlFactory">Specified temperature rule xml factory</param>
+        public SausageXmlFactory(ITemperatureRuleXmlFactory temperatureRuleXmlFactory) => 
             _temperatureRuleXmlFactory = temperatureRuleXmlFactory;
-        }
+        /// <summary>
+        /// Creates sausage from xml node
+        /// </summary>
         public Sausage Create(XmlNode node)
         {
             var nodes = node.ChildNodes.ToList();

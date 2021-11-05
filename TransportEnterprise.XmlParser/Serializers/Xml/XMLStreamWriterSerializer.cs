@@ -7,10 +7,8 @@ namespace TransportEnterprise.XmlParser.Serializers
         public XMLStreamWriterSerializer(string filePath) : base(filePath) { }
         protected override void Save()
         {
-            using(var sw = new StreamWriter(FilePath))
-            {
-                XmlDocument.Save(sw);
-            }
+            using var sw = new StreamWriter(FilePath);
+            XmlDocument.Save(sw);
         }
     }
 }

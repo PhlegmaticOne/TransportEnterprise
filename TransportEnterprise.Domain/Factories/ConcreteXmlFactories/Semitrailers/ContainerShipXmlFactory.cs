@@ -4,14 +4,20 @@ using TransportEnterprise.Models.Extensions;
 
 namespace TransportEnterprise.Models.Factories
 {
+    /// <summary>
+    /// Represents container ship xml factory
+    /// </summary>
     public class ContainerShipXmlFactory : SemitrailersBaseXmlFactory, IXmlDomainFactory<ContainerShip>
     {
+        /// <summary>
+        /// Initializes new container ships xml factory
+        /// </summary>
+        /// <param name="productsXmlAbstractFactory">Specified abstract product xml factory</param>
         public ContainerShipXmlFactory(IXmlAbstractDomainFactory<Product> productsXmlAbstractFactory) :
-            base(productsXmlAbstractFactory)
-        {
-
-        }
-
+            base(productsXmlAbstractFactory) { }
+        /// <summary>
+        /// Creates container ship from xml node
+        /// </summary>
         public ContainerShip Create(XmlNode node)
         {
             var nodes = node.ChildNodes.ToList();

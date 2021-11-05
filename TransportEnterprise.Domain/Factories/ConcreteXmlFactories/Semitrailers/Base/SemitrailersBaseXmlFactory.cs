@@ -1,17 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Xml;
 using TransportEnterprise.Models.Extensions;
 
 namespace TransportEnterprise.Models.Factories
 {
+    /// <summary>
+    /// Represents semitrailers base xml factory
+    /// </summary>
     public class SemitrailersBaseXmlFactory
     {
+        /// <summary>
+        /// Abstract product xml factory
+        /// </summary>
         private readonly IXmlAbstractDomainFactory<Product> ProductsXmlAbstractFactory;
-        public SemitrailersBaseXmlFactory(IXmlAbstractDomainFactory<Product> productsXmlAbstractFactory)
-        {
+        /// <summary>
+        /// Initializes new semitrailers abstract factory
+        /// </summary>
+        /// <param name="productsXmlAbstractFactory">Specified abstract product xml factory</param>
+        public SemitrailersBaseXmlFactory(IXmlAbstractDomainFactory<Product> productsXmlAbstractFactory) =>
             ProductsXmlAbstractFactory = productsXmlAbstractFactory;
-        }
+        /// <summary>
+        /// Gets properties values of semitrailers base type from xml node
+        /// </summary>
         protected (decimal, decimal, ICollection<Product>) GetSemitrailerParameters(ICollection<XmlNode> nodes)
         {
             var products = new List<Product>();
@@ -20,8 +30,8 @@ namespace TransportEnterprise.Models.Factories
                 products.Add(ProductsXmlAbstractFactory.GetFactory(product).Create(product));
             }
             return (decimal.Parse(nodes.GetInnerText("LoadCapacity")),
-                       decimal.Parse(nodes.GetInnerText("ValueCapacity")),
-                       products);   
+                    decimal.Parse(nodes.GetInnerText("ValueCapacity")),
+                    products);   
         }
     }
 }

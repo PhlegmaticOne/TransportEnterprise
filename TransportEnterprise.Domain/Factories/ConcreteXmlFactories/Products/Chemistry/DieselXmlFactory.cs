@@ -3,8 +3,14 @@ using TransportEnterprise.Models.Extensions;
 
 namespace TransportEnterprise.Models.Factories
 {
+    /// <summary>
+    /// Represents diesel xml factory
+    /// </summary>
     public class DieselXmlFactory : ChemistryBaseXmlFactory, IXmlDomainFactory<Diesel>
     {
+        /// <summary>
+        /// Creates diesel from xml node
+        /// </summary>
         public Diesel Create(XmlNode node)
         {
             var nodes = node.ChildNodes.ToList();

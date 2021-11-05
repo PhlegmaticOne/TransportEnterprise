@@ -13,6 +13,10 @@ namespace TransportEnterprise.Models.Factories
         /// </summary>
         /// <returns></returns>
         IXmlDomainFactory<T> GetFactory(XmlNode node);
+        /// <summary>
+        /// Gets all factories of type implementing this interface
+        /// </summary>
+        /// <returns></returns>
         IEnumerable<IXmlDomainFactory<T>> GetAllFactories();
     }
 }

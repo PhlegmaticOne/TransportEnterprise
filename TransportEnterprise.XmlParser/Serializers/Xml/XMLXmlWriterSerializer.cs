@@ -7,10 +7,8 @@ namespace TransportEnterprise.XmlParser.Serializers
         public XMLXmlWriterSerializer(string filePath) : base(filePath) { }
         protected override void Save()
         {
-            using(var xmlw = XmlWriter.Create(FilePath))
-            {
-                XmlDocument.Save(xmlw);
-            }
+            using var xmlw = XmlWriter.Create(FilePath);
+            XmlDocument.Save(xmlw);
         }
     }
 }

@@ -4,8 +4,14 @@ using TransportEnterprise.Models.Extensions;
 
 namespace TransportEnterprise.Models.Factories
 {
+    /// <summary>
+    /// Represents wood xml factory
+    /// </summary>
     public class WoodXmlFactory : MaterialBaseXmlFactory, IMaterialXmlFactory<Wood>
     {
+        /// <summary>
+        /// Creates wood from xml node
+        /// </summary>
         public Wood CreateMaterial(XmlNode node)
         {
             var nodes = node.ChildNodes.ToList();
