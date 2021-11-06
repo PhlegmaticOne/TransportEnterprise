@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TiltSemitrailers>
+	<TiltSemitrailer>
+		<LoadCapacity>3000</LoadCapacity>
+		<ValueCapacity>3000</ValueCapacity>
+		<CurrentLoading>110</CurrentLoading>
+		<CurrentLoadedValue>50</CurrentLoadedValue>
+		<Products>
+			<Carbon>
+				<ChemistryDangers>
+					<ChemistryDanger>Benign</ChemistryDanger>
+				</ChemistryDangers>
+				<Weight>10</Weight>
+				<Value>30</Value>
+				<Description>Carbon</Description>
+			</Carbon>
+			<Carbon>
+				<ChemistryDangers>
+					<ChemistryDanger>Benign</ChemistryDanger>
+				</ChemistryDangers>
+				<Weight>100</Weight>
+				<Value>20</Value>
+				<Description>Carbon</Description>
+			</Carbon>
+		</Products>
+	</TiltSemitrailer>
+
+	<TiltSemitrailer>
+		<LoadCapacity>5000</LoadCapacity>
+		<ValueCapacity>5000</ValueCapacity>
+		<CurrentLoading>110</CurrentLoading>
+		<CurrentLoadedValue>50</CurrentLoadedValue>
+		<Products>
+			<Carbon>
+				<ChemistryDangers>
+					<ChemistryDanger>Benign</ChemistryDanger>
+				</ChemistryDangers>
+				<Weight>10</Weight>
+				<Value>30</Value>
+				<Description>Carbon</Description>
+			</Carbon>
+			<Carbon>
+				<ChemistryDangers>
+					<ChemistryDanger>Benign</ChemistryDanger>
+				</ChemistryDangers>
+				<Weight>100</Weight>
+				<Value>20</Value>
+				<Description>Carbon</Description>
+			</Carbon>
+		</Products>
+	</TiltSemitrailer>
+</TiltSemitrailers>

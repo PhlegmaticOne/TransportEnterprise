@@ -25,10 +25,6 @@ namespace TransportEnterprise.Models
         {
             Semitrailer = semitrailer ?? throw new ArgumentNullException(nameof(semitrailer));
             TruckTractor = truckTractor ?? throw new ArgumentNullException(nameof(truckTractor));
-            if(TruckTractor.Semitrailer is null)
-            {
-                TruckTractor.HookUp(semitrailer);
-            }
         }
         /// <summary>
         /// Products in coupling

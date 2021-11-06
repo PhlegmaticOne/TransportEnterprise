@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Sausages>
+	<Sausage>
+		<SausageType>
+			Chicken
+		</SausageType>
+		<TemperatureRule type="TemperatureRule">
+				<MinimalTemperature>0</MinimalTemperature>
+				<MaximumTemperature>20</MaximumTemperature>
+		</TemperatureRule>
+		<Weight>30</Weight>
+		<Value>100</Value>
+		<Description>For childs</Description>
+	</Sausage>
+
+	<Sausage>
+		<SausageType>
+			Pork
+		</SausageType>
+		<TemperatureRule type="TemperatureRule">
+				<MinimalTemperature>0</MinimalTemperature>
+				<MaximumTemperature>20</MaximumTemperature>
+		</TemperatureRule>
+		<Weight>10</Weight>
+		<Value>20</Value>
+		<Description>For adults</Description>
+	</Sausage>
+</Sausages>

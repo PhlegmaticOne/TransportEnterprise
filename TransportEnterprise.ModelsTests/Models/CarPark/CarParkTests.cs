@@ -47,8 +47,9 @@ namespace TransportEnterprise.Models.Tests
         public void RemoveTruckTractorTest()
         {
             var tr = new ActrosMP2("S8D8D4");
-            _carPark.Remove(tr);
+            _carPark.Remove(tr, RemoveTruckTractorType.LeaveItsSemitrailer);
             Assert.IsTrue(_carPark.TruckTractors.Count == 3);
+            Assert.IsTrue(_carPark.Semitrailers.Count == 4);
         }
 
         [TestMethod()]
@@ -69,8 +70,9 @@ namespace TransportEnterprise.Models.Tests
         [TestMethod()]
         public void ClearTrackTractorsTest()
         {
-            _carPark.ClearTrackTractors();
+            _carPark.ClearTrackTractors(ClearTruckTractorType.LeaveAllTruckSemitrailers);
             Assert.IsTrue(_carPark.TruckTractors.Count == 0);
+            Assert.IsTrue(_carPark.Semitrailers.Count == 4);
         }
 
         [TestMethod()]

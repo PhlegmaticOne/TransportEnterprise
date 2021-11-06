@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Carbons>
+	<Carbon>
+		<ChemistryDangers>
+			<ChemistryDanger>Benign</ChemistryDanger>
+		</ChemistryDangers>
+		<Weight>10</Weight>
+		<Value>30</Value>
+		<Description>Carbon</Description>
+	</Carbon>
+
+	<Carbon>
+		<ChemistryDangers>
+			<ChemistryDanger>Benign</ChemistryDanger>
+		</ChemistryDangers>
+		<Weight>100</Weight>
+		<Value>20</Value>
+		<Description>Carbon</Description>
+	</Carbon>
+</Carbons>

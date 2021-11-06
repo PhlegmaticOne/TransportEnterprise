@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ContainerShips>
 	<ContainerShip>
-		<LoadCapacity>10000</LoadCapacity>
-		<ValueCapacity>1000</ValueCapacity>
-		<CurrentLoading>400</CurrentLoading>
-		<CurrentLoadedValue>250</CurrentLoadedValue>
+		<LoadCapacity>3000</LoadCapacity>
+		<ValueCapacity>3000</ValueCapacity>
+		<CurrentLoading>200</CurrentLoading>
+		<CurrentLoadedValue>100</CurrentLoadedValue>
 		<Products>
 			<Carpet>
 				<Material type="Textile">
@@ -21,21 +21,60 @@
 				<Value>50</Value>
 				<Description>Very warm</Description>
 			</Carpet>
-			<Wardrobe>
-				<Material type="Wood">
-						<WoodType>
-							Oak
-						</WoodType>
-						<Price>40</Price>
-						<Color>Color [Brown]</Color>
+			<Carpet>
+				<Material type="Textile">
+						<TextileType>
+							Silk
+						</TextileType>
+						<Price>50</Price>
+						<Color>Color [Purple]</Color>
 				</Material>
 				<FurniturePurpose>
 					Hall
 				</FurniturePurpose>
-				<Weight>300</Weight>
-				<Value>200</Value>
-				<Description>Very big</Description>
-			</Wardrobe>
+				<Weight>100</Weight>
+				<Value>50</Value>
+				<Description>Very warm</Description>
+			</Carpet>
+		</Products>
+	</ContainerShip>
+
+	<ContainerShip>
+		<LoadCapacity>5000</LoadCapacity>
+		<ValueCapacity>5000</ValueCapacity>
+		<CurrentLoading>200</CurrentLoading>
+		<CurrentLoadedValue>100</CurrentLoadedValue>
+		<Products>
+			<Carpet>
+				<Material type="Textile">
+						<TextileType>
+							Wool
+						</TextileType>
+						<Price>50</Price>
+						<Color>Color [Pink]</Color>
+				</Material>
+				<FurniturePurpose>
+					Bedroom
+				</FurniturePurpose>
+				<Weight>100</Weight>
+				<Value>50</Value>
+				<Description>Very warm</Description>
+			</Carpet>
+			<Carpet>
+				<Material type="Textile">
+						<TextileType>
+							Silk
+						</TextileType>
+						<Price>50</Price>
+						<Color>Color [Purple]</Color>
+				</Material>
+				<FurniturePurpose>
+					Hall
+				</FurniturePurpose>
+				<Weight>100</Weight>
+				<Value>50</Value>
+				<Description>Very warm</Description>
+			</Carpet>
 		</Products>
 	</ContainerShip>
 </ContainerShips>

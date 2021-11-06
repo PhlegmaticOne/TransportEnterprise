@@ -3,8 +3,19 @@ using TransportEnterprise.Models.Interfaces;
 
 namespace TransportEnterprise.Models
 {
+    /// <summary>
+    /// Represents sausage type
+    /// </summary>
     public class Sausage : CustomerGood, ITempereratureDependent, IEquatable<Sausage>
     {
+        /// <summary>
+        /// Initializes new sausage type
+        /// </summary>
+        /// <param name="weight">Specified weight</param>
+        /// <param name="value">Specified value</param>
+        /// <param name="description">Specified description</param>
+        /// <param name="sausageType">Specified sausage type</param>
+        /// <param name="temperatureRule">Specified temperature rule</param>
         public Sausage(decimal weight, decimal value, string description,
                        SausageType sausageType, TemperatureRule temperatureRule) :
                        base(weight, value, description)
@@ -12,7 +23,13 @@ namespace TransportEnterprise.Models
             SausageType = sausageType;
             TemperatureRule = temperatureRule ?? new TemperatureRule(-2, 15);
         }
-        public SausageType SausageType { get; private set; }
+        /// <summary>
+        /// Sausage type
+        /// </summary>
+        public SausageType SausageType { get; }
+        /// <summary>
+        /// Temperature rule
+        /// </summary>
         public TemperatureRule TemperatureRule { get; }
         /// <summary>
         /// Checks equality of two sausages

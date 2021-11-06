@@ -24,7 +24,7 @@ namespace TransportEnterprise.XmlParserTests.NewModelsTests
             containerShip.Load(carpet);
             containerShip.Load(wardrobe);
 
-            var path = new XmlTestsFilePathesGetter(containerShip.GetType()).GetFilePath();
+            var path = new XmlTestsFilePathesGetter(containerShip.GetType()).GetFilePath() + "New";
             var serializer = new XMLStreamWriterSerializer<ContainerShip>(path);
 
             serializer.Serialize(containerShip);
@@ -33,7 +33,7 @@ namespace TransportEnterprise.XmlParserTests.NewModelsTests
         [TestMethod()]
         public void NewModelsDeserializeTest()
         {
-            var path = new XmlTestsFilePathesGetter(typeof(ContainerShip)).GetFilePath();
+            var path = new XmlTestsFilePathesGetter(typeof(ContainerShip)).GetFilePath() + "New";
 
             var temperarureXmlFactory = new TemperatureRuleXmlFactory();
 

@@ -27,6 +27,7 @@
             {
                 { "CocaCola", new CocaColaXmlFactory() },
                 { "Milk", new MilkXmlFactory(_temperatureRuleXmlFactory) },
+                { "Sausage", new SausageXmlFactory(_temperatureRuleXmlFactory) },
             };
         }
     }

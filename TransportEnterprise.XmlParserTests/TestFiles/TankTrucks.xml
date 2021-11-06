@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TankTrucks>
+	<TankTruck>
+		<LoadCapacity>3000</LoadCapacity>
+		<ValueCapacity>3000</ValueCapacity>
+		<CurrentLoading>110</CurrentLoading>
+		<CurrentLoadedValue>50</CurrentLoadedValue>
+		<Products>
+			<PetrolA95>
+				<ChemistryDangers>
+					<ChemistryDanger>Flammable</ChemistryDanger>
+					<ChemistryDanger>Explosive</ChemistryDanger>
+					<ChemistryDanger>Toxic</ChemistryDanger>
+				</ChemistryDangers>
+				<Weight>10</Weight>
+				<Value>30</Value>
+				<Description>Petrol A95</Description>
+			</PetrolA95>
+			<PetrolA95>
+				<ChemistryDangers>
+					<ChemistryDanger>Flammable</ChemistryDanger>
+					<ChemistryDanger>Explosive</ChemistryDanger>
+					<ChemistryDanger>Toxic</ChemistryDanger>
+				</ChemistryDangers>
+				<Weight>100</Weight>
+				<Value>20</Value>
+				<Description>More A95</Description>
+			</PetrolA95>
+		</Products>
+	</TankTruck>
+
+	<TankTruck>
+		<LoadCapacity>5000</LoadCapacity>
+		<ValueCapacity>5000</ValueCapacity>
+		<CurrentLoading>110</CurrentLoading>
+		<CurrentLoadedValue>50</CurrentLoadedValue>
+		<Products>
+			<PetrolA95>
+				<ChemistryDangers>
+					<ChemistryDanger>Flammable</ChemistryDanger>
+					<ChemistryDanger>Explosive</ChemistryDanger>
+					<ChemistryDanger>Toxic</ChemistryDanger>
+				</ChemistryDangers>
+				<Weight>10</Weight>
+				<Value>30</Value>
+				<Description>Petrol A95</Description>
+			</PetrolA95>
+			<PetrolA95>
+				<ChemistryDangers>
+					<ChemistryDanger>Flammable</ChemistryDanger>
+					<ChemistryDanger>Explosive</ChemistryDanger>
+					<ChemistryDanger>Toxic</ChemistryDanger>
+				</ChemistryDangers>
+				<Weight>100</Weight>
+				<Value>20</Value>
+				<Description>More A95</Description>
+			</PetrolA95>
+		</Products>
+	</TankTruck>
+</TankTrucks>

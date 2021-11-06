@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CocaColas>
+	<CocaCola>
+		<ColaTaste>
+			Orange
+		</ColaTaste>
+		<Weight>3</Weight>
+		<Value>6</Value>
+		<Description>AAA</Description>
+	</CocaCola>
+
+	<CocaCola>
+		<ColaTaste>
+			Vanilla
+		</ColaTaste>
+		<Weight>45</Weight>
+		<Value>22</Value>
+		<Description>Big</Description>
+	</CocaCola>
+</CocaColas>

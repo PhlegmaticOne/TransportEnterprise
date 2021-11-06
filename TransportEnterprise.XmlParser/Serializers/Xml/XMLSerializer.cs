@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
@@ -32,6 +33,13 @@ namespace TransportEnterprise.XmlParser.Serializers
             fragment.InnerXml = sb.ToString();
             XmlDocument.LastChild.AppendChild(fragment);
             Save();
+        }
+        public override void SerializeCollection(IEnumerable<T> entities)
+        {
+            foreach (var entity in entities)
+            {
+                Serialize(entity);
+            }
         }
         private StringBuilder ToXml(StringBuilder sb, object entity, int padding)
         {

@@ -10,7 +10,7 @@ namespace TransportEnterprise.Models
     /// <summary>
     /// Represents base instance of semitrailers
     /// </summary>
-    public abstract class Semitrailer : IEquatable<Semitrailer>, IWithLoadingRules
+    public abstract class Semitrailer : IWithLoadingRules
     {
         /// <summary>
         /// Rules for adding new products
@@ -86,13 +86,12 @@ namespace TransportEnterprise.Models
         /// </summary>
         public void UnloadAll() => _products.Clear();
         /// <summary>
-        /// Checks equality of two semitrilers
-        /// </summary>
-        public bool Equals(Semitrailer other) => other.LoadCapacity == LoadCapacity && _products.AllEquals(other._products);
-        /// <summary>
         /// Checks equality of current semitriler with specified object
         /// </summary>
-        public override bool Equals(object obj) => obj is Semitrailer semitrailer && Equals(semitrailer);
+        public override bool Equals(object obj) => obj is Semitrailer semitrailer &&
+                                                   semitrailer.GetType() == GetType() &&
+                                                   semitrailer.LoadCapacity == LoadCapacity &&
+                                                   _products.AllEquals(semitrailer._products);
         /// <summary>
         /// Gets hash code of current semitrailer
         /// </summary>

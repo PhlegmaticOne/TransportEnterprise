@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wardrobes>
+	<Wardrobe>
+		<Material type="Wood">
+				<WoodType>
+					Birch
+				</WoodType>
+				<Price>40</Price>
+				<Color>Color [Black]</Color>
+		</Material>
+		<FurniturePurpose>
+			Hall
+		</FurniturePurpose>
+		<Weight>300</Weight>
+		<Value>200</Value>
+		<Description>Very big</Description>
+	</Wardrobe>
+
+	<Wardrobe>
+		<Material type="Wood">
+				<WoodType>
+					Oak
+				</WoodType>
+				<Price>40</Price>
+				<Color>Color [Brown]</Color>
+		</Material>
+		<FurniturePurpose>
+			Bedroom
+		</FurniturePurpose>
+		<Weight>300</Weight>
+		<Value>200</Value>
+		<Description>Very big</Description>
+	</Wardrobe>
+</Wardrobes>

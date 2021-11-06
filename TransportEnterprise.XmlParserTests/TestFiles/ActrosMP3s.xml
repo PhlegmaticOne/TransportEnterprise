@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ActrosMP3s>
+	<ActrosMP3>
+		<PetrolPerHour>115,50</PetrolPerHour>
+		<Semitrailer type="TankTruck">
+				<LoadCapacity>3000</LoadCapacity>
+				<ValueCapacity>3000</ValueCapacity>
+				<CurrentLoading>110</CurrentLoading>
+				<CurrentLoadedValue>50</CurrentLoadedValue>
+				<Products>
+					<PetrolA95>
+						<ChemistryDangers>
+							<ChemistryDanger>Flammable</ChemistryDanger>
+							<ChemistryDanger>Explosive</ChemistryDanger>
+							<ChemistryDanger>Toxic</ChemistryDanger>
+						</ChemistryDangers>
+						<Weight>10</Weight>
+						<Value>30</Value>
+						<Description>Petrol A95</Description>
+					</PetrolA95>
+					<PetrolA95>
+						<ChemistryDangers>
+							<ChemistryDanger>Flammable</ChemistryDanger>
+							<ChemistryDanger>Explosive</ChemistryDanger>
+							<ChemistryDanger>Toxic</ChemistryDanger>
+						</ChemistryDangers>
+						<Weight>100</Weight>
+						<Value>20</Value>
+						<Description>More A95</Description>
+					</PetrolA95>
+				</Products>
+		</Semitrailer>
+		<SerialNumber>SS9988</SerialNumber>
+	</ActrosMP3>
+
+	<ActrosMP3>
+		<PetrolPerHour>210,00</PetrolPerHour>
+		<Semitrailer type="ContainerShip">
+				<LoadCapacity>3000</LoadCapacity>
+				<ValueCapacity>3000</ValueCapacity>
+				<CurrentLoading>200</CurrentLoading>
+				<CurrentLoadedValue>100</CurrentLoadedValue>
+				<Products>
+					<Carpet>
+						<Material type="Textile">
+								<TextileType>
+									Wool
+								</TextileType>
+								<Price>50</Price>
+								<Color>Color [Pink]</Color>
+						</Material>
+						<FurniturePurpose>
+							Bedroom
+						</FurniturePurpose>
+						<Weight>100</Weight>
+						<Value>50</Value>
+						<Description>Very warm</Description>
+					</Carpet>
+					<Carpet>
+						<Material type="Textile">
+								<TextileType>
+									Silk
+								</TextileType>
+								<Price>50</Price>
+								<Color>Color [Purple]</Color>
+						</Material>
+						<FurniturePurpose>
+							Hall
+						</FurniturePurpose>
+						<Weight>100</Weight>
+						<Value>50</Value>
+						<Description>Very warm</Description>
+					</Carpet>
+				</Products>
+		</Semitrailer>
+		<SerialNumber>AA6677</SerialNumber>
+	</ActrosMP3>
+</ActrosMP3s>

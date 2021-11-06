@@ -1,7 +1,7 @@
 ﻿using System.Xml;
 using TransportEnterprise.Models.Extensions;
 
-namespace TransportEnterprise.Models.Factories.ConcreteXmlFactories.Products.CustomerGoods
+namespace TransportEnterprise.Models.Factories
 {
     /// <summary>
     /// Represents sausage xml factory

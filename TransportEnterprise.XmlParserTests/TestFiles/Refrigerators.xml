@@ -3,25 +3,75 @@
 	<Refrigerator>
 		<TemperatureRule type="TemperatureRule">
 				<MinimalTemperature>-100</MinimalTemperature>
-				<MaximumTemperature>0</MaximumTemperature>
+				<MaximumTemperature>100</MaximumTemperature>
 		</TemperatureRule>
-		<NoiseLevelInDecibels>50</NoiseLevelInDecibels>
-		<LoadCapacity>500</LoadCapacity>
-		<ValueCapacity>500</ValueCapacity>
-		<CurrentLoading>100</CurrentLoading>
-		<CurrentLoadedValue>2</CurrentLoadedValue>
+		<NoiseLevelInDecibels>30</NoiseLevelInDecibels>
+		<LoadCapacity>3000</LoadCapacity>
+		<ValueCapacity>3000</ValueCapacity>
+		<CurrentLoading>70</CurrentLoading>
+		<CurrentLoadedValue>50</CurrentLoadedValue>
 		<Products>
 			<Milk>
 						<TemperatureRule type="TemperatureRule">
-								<MinimalTemperature>-10</MinimalTemperature>
-								<MaximumTemperature>-2</MaximumTemperature>
+								<MinimalTemperature>-5</MinimalTemperature>
+								<MaximumTemperature>15</MaximumTemperature>
 						</TemperatureRule>
 						<MilkTaste>
 							Cow
 						</MilkTaste>
-						<Weight>100</Weight>
-						<Value>2</Value>
-						<Description>Very tasteful</Description>
+						<Weight>30</Weight>
+						<Value>30</Value>
+						<Description>SSS</Description>
+			</Milk>
+			<Milk>
+						<TemperatureRule type="TemperatureRule">
+								<MinimalTemperature>-5</MinimalTemperature>
+								<MaximumTemperature>15</MaximumTemperature>
+						</TemperatureRule>
+						<MilkTaste>
+							Chocolate
+						</MilkTaste>
+						<Weight>40</Weight>
+						<Value>20</Value>
+						<Description>FFF</Description>
+			</Milk>
+		</Products>
+	</Refrigerator>
+
+	<Refrigerator>
+		<TemperatureRule type="TemperatureRule">
+				<MinimalTemperature>-100</MinimalTemperature>
+				<MaximumTemperature>100</MaximumTemperature>
+		</TemperatureRule>
+		<NoiseLevelInDecibels>50</NoiseLevelInDecibels>
+		<LoadCapacity>5000</LoadCapacity>
+		<ValueCapacity>5000</ValueCapacity>
+		<CurrentLoading>70</CurrentLoading>
+		<CurrentLoadedValue>50</CurrentLoadedValue>
+		<Products>
+			<Milk>
+						<TemperatureRule type="TemperatureRule">
+								<MinimalTemperature>-5</MinimalTemperature>
+								<MaximumTemperature>15</MaximumTemperature>
+						</TemperatureRule>
+						<MilkTaste>
+							Cow
+						</MilkTaste>
+						<Weight>30</Weight>
+						<Value>30</Value>
+						<Description>SSS</Description>
+			</Milk>
+			<Milk>
+						<TemperatureRule type="TemperatureRule">
+								<MinimalTemperature>-5</MinimalTemperature>
+								<MaximumTemperature>15</MaximumTemperature>
+						</TemperatureRule>
+						<MilkTaste>
+							Chocolate
+						</MilkTaste>
+						<Weight>40</Weight>
+						<Value>20</Value>
+						<Description>FFF</Description>
 			</Milk>
 		</Products>
 	</Refrigerator>

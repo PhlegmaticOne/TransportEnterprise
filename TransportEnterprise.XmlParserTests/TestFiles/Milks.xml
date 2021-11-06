@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Milks>
+	<Milk>
+		<TemperatureRule type="TemperatureRule">
+				<MinimalTemperature>-5</MinimalTemperature>
+				<MaximumTemperature>15</MaximumTemperature>
+		</TemperatureRule>
+		<MilkTaste>
+			Cow
+		</MilkTaste>
+		<Weight>30</Weight>
+		<Value>30</Value>
+		<Description>SSS</Description>
+	</Milk>
+
+	<Milk>
+		<TemperatureRule type="TemperatureRule">
+				<MinimalTemperature>-5</MinimalTemperature>
+				<MaximumTemperature>15</MaximumTemperature>
+		</TemperatureRule>
+		<MilkTaste>
+			Chocolate
+		</MilkTaste>
+		<Weight>40</Weight>
+		<Value>20</Value>
+		<Description>FFF</Description>
+	</Milk>
+</Milks>

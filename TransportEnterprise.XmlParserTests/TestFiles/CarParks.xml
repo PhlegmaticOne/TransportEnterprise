@@ -8,91 +8,398 @@
 						<MaximumTemperature>100</MaximumTemperature>
 				</TemperatureRule>
 				<NoiseLevelInDecibels>30</NoiseLevelInDecibels>
-				<LoadCapacity>300</LoadCapacity>
-				<ValueCapacity>300</ValueCapacity>
-				<CurrentLoading>100</CurrentLoading>
-				<CurrentLoadedValue>2</CurrentLoadedValue>
+				<LoadCapacity>3000</LoadCapacity>
+				<ValueCapacity>3000</ValueCapacity>
+				<CurrentLoading>70</CurrentLoading>
+				<CurrentLoadedValue>50</CurrentLoadedValue>
 				<Products>
 					<Milk>
 								<TemperatureRule type="TemperatureRule">
-										<MinimalTemperature>-10</MinimalTemperature>
-										<MaximumTemperature>-2</MaximumTemperature>
+										<MinimalTemperature>-5</MinimalTemperature>
+										<MaximumTemperature>15</MaximumTemperature>
 								</TemperatureRule>
 								<MilkTaste>
 									Cow
 								</MilkTaste>
-								<Weight>100</Weight>
-								<Value>2</Value>
-								<Description>Very tasteful</Description>
+								<Weight>30</Weight>
+								<Value>30</Value>
+								<Description>SSS</Description>
+					</Milk>
+					<Milk>
+								<TemperatureRule type="TemperatureRule">
+										<MinimalTemperature>-5</MinimalTemperature>
+										<MaximumTemperature>15</MaximumTemperature>
+								</TemperatureRule>
+								<MilkTaste>
+									Chocolate
+								</MilkTaste>
+								<Weight>40</Weight>
+								<Value>20</Value>
+								<Description>FFF</Description>
 					</Milk>
 				</Products>
 			</Refrigerator>
 			<Refrigerator>
 				<TemperatureRule type="TemperatureRule">
-						<MinimalTemperature>-10</MinimalTemperature>
-						<MaximumTemperature>10</MaximumTemperature>
+						<MinimalTemperature>-100</MinimalTemperature>
+						<MaximumTemperature>100</MaximumTemperature>
 				</TemperatureRule>
-				<NoiseLevelInDecibels>30</NoiseLevelInDecibels>
-				<LoadCapacity>300</LoadCapacity>
-				<ValueCapacity>300</ValueCapacity>
-				<CurrentLoading>100</CurrentLoading>
-				<CurrentLoadedValue>2</CurrentLoadedValue>
+				<NoiseLevelInDecibels>50</NoiseLevelInDecibels>
+				<LoadCapacity>5000</LoadCapacity>
+				<ValueCapacity>5000</ValueCapacity>
+				<CurrentLoading>70</CurrentLoading>
+				<CurrentLoadedValue>50</CurrentLoadedValue>
 				<Products>
 					<Milk>
 								<TemperatureRule type="TemperatureRule">
-										<MinimalTemperature>-10</MinimalTemperature>
-										<MaximumTemperature>-2</MaximumTemperature>
+										<MinimalTemperature>-5</MinimalTemperature>
+										<MaximumTemperature>15</MaximumTemperature>
 								</TemperatureRule>
 								<MilkTaste>
 									Cow
 								</MilkTaste>
-								<Weight>100</Weight>
-								<Value>2</Value>
-								<Description>Very tasteful</Description>
+								<Weight>30</Weight>
+								<Value>30</Value>
+								<Description>SSS</Description>
+					</Milk>
+					<Milk>
+								<TemperatureRule type="TemperatureRule">
+										<MinimalTemperature>-5</MinimalTemperature>
+										<MaximumTemperature>15</MaximumTemperature>
+								</TemperatureRule>
+								<MilkTaste>
+									Chocolate
+								</MilkTaste>
+								<Weight>40</Weight>
+								<Value>20</Value>
+								<Description>FFF</Description>
 					</Milk>
 				</Products>
 			</Refrigerator>
 			<TankTruck>
-				<LoadCapacity>500</LoadCapacity>
-				<ValueCapacity>200</ValueCapacity>
-				<CurrentLoading>0</CurrentLoading>
-				<CurrentLoadedValue>0</CurrentLoadedValue>
+				<LoadCapacity>3000</LoadCapacity>
+				<ValueCapacity>3000</ValueCapacity>
+				<CurrentLoading>110</CurrentLoading>
+				<CurrentLoadedValue>50</CurrentLoadedValue>
 				<Products>
+					<PetrolA95>
+						<ChemistryDangers>
+							<ChemistryDanger>Flammable</ChemistryDanger>
+							<ChemistryDanger>Explosive</ChemistryDanger>
+							<ChemistryDanger>Toxic</ChemistryDanger>
+						</ChemistryDangers>
+						<Weight>10</Weight>
+						<Value>30</Value>
+						<Description>Petrol A95</Description>
+					</PetrolA95>
+					<PetrolA95>
+						<ChemistryDangers>
+							<ChemistryDanger>Flammable</ChemistryDanger>
+							<ChemistryDanger>Explosive</ChemistryDanger>
+							<ChemistryDanger>Toxic</ChemistryDanger>
+						</ChemistryDangers>
+						<Weight>100</Weight>
+						<Value>20</Value>
+						<Description>More A95</Description>
+					</PetrolA95>
+				</Products>
+			</TankTruck>
+			<TankTruck>
+				<LoadCapacity>5000</LoadCapacity>
+				<ValueCapacity>5000</ValueCapacity>
+				<CurrentLoading>110</CurrentLoading>
+				<CurrentLoadedValue>50</CurrentLoadedValue>
+				<Products>
+					<PetrolA95>
+						<ChemistryDangers>
+							<ChemistryDanger>Flammable</ChemistryDanger>
+							<ChemistryDanger>Explosive</ChemistryDanger>
+							<ChemistryDanger>Toxic</ChemistryDanger>
+						</ChemistryDangers>
+						<Weight>10</Weight>
+						<Value>30</Value>
+						<Description>Petrol A95</Description>
+					</PetrolA95>
+					<PetrolA95>
+						<ChemistryDangers>
+							<ChemistryDanger>Flammable</ChemistryDanger>
+							<ChemistryDanger>Explosive</ChemistryDanger>
+							<ChemistryDanger>Toxic</ChemistryDanger>
+						</ChemistryDangers>
+						<Weight>100</Weight>
+						<Value>20</Value>
+						<Description>More A95</Description>
+					</PetrolA95>
 				</Products>
 			</TankTruck>
 			<TiltSemitrailer>
-				<LoadCapacity>1000</LoadCapacity>
-				<ValueCapacity>1000</ValueCapacity>
-				<CurrentLoading>0</CurrentLoading>
-				<CurrentLoadedValue>0</CurrentLoadedValue>
+				<LoadCapacity>3000</LoadCapacity>
+				<ValueCapacity>3000</ValueCapacity>
+				<CurrentLoading>110</CurrentLoading>
+				<CurrentLoadedValue>50</CurrentLoadedValue>
 				<Products>
+					<Carbon>
+						<ChemistryDangers>
+							<ChemistryDanger>Benign</ChemistryDanger>
+						</ChemistryDangers>
+						<Weight>10</Weight>
+						<Value>30</Value>
+						<Description>Carbon</Description>
+					</Carbon>
+					<Carbon>
+						<ChemistryDangers>
+							<ChemistryDanger>Benign</ChemistryDanger>
+						</ChemistryDangers>
+						<Weight>100</Weight>
+						<Value>20</Value>
+						<Description>Carbon</Description>
+					</Carbon>
 				</Products>
 			</TiltSemitrailer>
+			<TiltSemitrailer>
+				<LoadCapacity>5000</LoadCapacity>
+				<ValueCapacity>5000</ValueCapacity>
+				<CurrentLoading>110</CurrentLoading>
+				<CurrentLoadedValue>50</CurrentLoadedValue>
+				<Products>
+					<Carbon>
+						<ChemistryDangers>
+							<ChemistryDanger>Benign</ChemistryDanger>
+						</ChemistryDangers>
+						<Weight>10</Weight>
+						<Value>30</Value>
+						<Description>Carbon</Description>
+					</Carbon>
+					<Carbon>
+						<ChemistryDangers>
+							<ChemistryDanger>Benign</ChemistryDanger>
+						</ChemistryDangers>
+						<Weight>100</Weight>
+						<Value>20</Value>
+						<Description>Carbon</Description>
+					</Carbon>
+				</Products>
+			</TiltSemitrailer>
+			<ContainerShip>
+				<LoadCapacity>3000</LoadCapacity>
+				<ValueCapacity>3000</ValueCapacity>
+				<CurrentLoading>200</CurrentLoading>
+				<CurrentLoadedValue>100</CurrentLoadedValue>
+				<Products>
+					<Carpet>
+						<Material type="Textile">
+								<TextileType>
+									Wool
+								</TextileType>
+								<Price>50</Price>
+								<Color>Color [Pink]</Color>
+						</Material>
+						<FurniturePurpose>
+							Bedroom
+						</FurniturePurpose>
+						<Weight>100</Weight>
+						<Value>50</Value>
+						<Description>Very warm</Description>
+					</Carpet>
+					<Carpet>
+						<Material type="Textile">
+								<TextileType>
+									Silk
+								</TextileType>
+								<Price>50</Price>
+								<Color>Color [Purple]</Color>
+						</Material>
+						<FurniturePurpose>
+							Hall
+						</FurniturePurpose>
+						<Weight>100</Weight>
+						<Value>50</Value>
+						<Description>Very warm</Description>
+					</Carpet>
+				</Products>
+			</ContainerShip>
+			<ContainerShip>
+				<LoadCapacity>5000</LoadCapacity>
+				<ValueCapacity>5000</ValueCapacity>
+				<CurrentLoading>200</CurrentLoading>
+				<CurrentLoadedValue>100</CurrentLoadedValue>
+				<Products>
+					<Carpet>
+						<Material type="Textile">
+								<TextileType>
+									Wool
+								</TextileType>
+								<Price>50</Price>
+								<Color>Color [Pink]</Color>
+						</Material>
+						<FurniturePurpose>
+							Bedroom
+						</FurniturePurpose>
+						<Weight>100</Weight>
+						<Value>50</Value>
+						<Description>Very warm</Description>
+					</Carpet>
+					<Carpet>
+						<Material type="Textile">
+								<TextileType>
+									Silk
+								</TextileType>
+								<Price>50</Price>
+								<Color>Color [Purple]</Color>
+						</Material>
+						<FurniturePurpose>
+							Hall
+						</FurniturePurpose>
+						<Weight>100</Weight>
+						<Value>50</Value>
+						<Description>Very warm</Description>
+					</Carpet>
+				</Products>
+			</ContainerShip>
 		</Semitrailers>
 		<TruckTractors>
 			<ActrosMP2>
-						<PetrolPerHour>0</PetrolPerHour>
-						<Semitrailer type="">
+						<PetrolPerHour>3300,0</PetrolPerHour>
+						<Semitrailer type="Refrigerator">
+								<TemperatureRule type="TemperatureRule">
+										<MinimalTemperature>-100</MinimalTemperature>
+										<MaximumTemperature>100</MaximumTemperature>
+								</TemperatureRule>
+								<NoiseLevelInDecibels>30</NoiseLevelInDecibels>
+								<LoadCapacity>3000</LoadCapacity>
+								<ValueCapacity>3000</ValueCapacity>
+								<CurrentLoading>70</CurrentLoading>
+								<CurrentLoadedValue>50</CurrentLoadedValue>
+								<Products>
+									<Milk>
+												<TemperatureRule type="TemperatureRule">
+														<MinimalTemperature>-5</MinimalTemperature>
+														<MaximumTemperature>15</MaximumTemperature>
+												</TemperatureRule>
+												<MilkTaste>
+													Cow
+												</MilkTaste>
+												<Weight>30</Weight>
+												<Value>30</Value>
+												<Description>SSS</Description>
+									</Milk>
+									<Milk>
+												<TemperatureRule type="TemperatureRule">
+														<MinimalTemperature>-5</MinimalTemperature>
+														<MaximumTemperature>15</MaximumTemperature>
+												</TemperatureRule>
+												<MilkTaste>
+													Chocolate
+												</MilkTaste>
+												<Weight>40</Weight>
+												<Value>20</Value>
+												<Description>FFF</Description>
+									</Milk>
+								</Products>
 						</Semitrailer>
-						<SerialNumber>S8D8D3</SerialNumber>
+						<SerialNumber>SS9988</SerialNumber>
 			</ActrosMP2>
 			<ActrosMP2>
-						<PetrolPerHour>0</PetrolPerHour>
-						<Semitrailer type="">
+						<PetrolPerHour>3300,0</PetrolPerHour>
+						<Semitrailer type="TiltSemitrailer">
+								<LoadCapacity>3000</LoadCapacity>
+								<ValueCapacity>3000</ValueCapacity>
+								<CurrentLoading>110</CurrentLoading>
+								<CurrentLoadedValue>50</CurrentLoadedValue>
+								<Products>
+									<Carbon>
+										<ChemistryDangers>
+											<ChemistryDanger>Benign</ChemistryDanger>
+										</ChemistryDangers>
+										<Weight>10</Weight>
+										<Value>30</Value>
+										<Description>Carbon</Description>
+									</Carbon>
+									<Carbon>
+										<ChemistryDangers>
+											<ChemistryDanger>Benign</ChemistryDanger>
+										</ChemistryDangers>
+										<Weight>100</Weight>
+										<Value>20</Value>
+										<Description>Carbon</Description>
+									</Carbon>
+								</Products>
 						</Semitrailer>
-						<SerialNumber>S8D8D4</SerialNumber>
+						<SerialNumber>AA6677</SerialNumber>
 			</ActrosMP2>
 			<ActrosMP3>
-						<PetrolPerHour>0</PetrolPerHour>
-						<Semitrailer type="">
+						<PetrolPerHour>115,50</PetrolPerHour>
+						<Semitrailer type="TankTruck">
+								<LoadCapacity>3000</LoadCapacity>
+								<ValueCapacity>3000</ValueCapacity>
+								<CurrentLoading>110</CurrentLoading>
+								<CurrentLoadedValue>50</CurrentLoadedValue>
+								<Products>
+									<PetrolA95>
+										<ChemistryDangers>
+											<ChemistryDanger>Flammable</ChemistryDanger>
+											<ChemistryDanger>Explosive</ChemistryDanger>
+											<ChemistryDanger>Toxic</ChemistryDanger>
+										</ChemistryDangers>
+										<Weight>10</Weight>
+										<Value>30</Value>
+										<Description>Petrol A95</Description>
+									</PetrolA95>
+									<PetrolA95>
+										<ChemistryDangers>
+											<ChemistryDanger>Flammable</ChemistryDanger>
+											<ChemistryDanger>Explosive</ChemistryDanger>
+											<ChemistryDanger>Toxic</ChemistryDanger>
+										</ChemistryDangers>
+										<Weight>100</Weight>
+										<Value>20</Value>
+										<Description>More A95</Description>
+									</PetrolA95>
+								</Products>
 						</Semitrailer>
-						<SerialNumber>S9D8D4</SerialNumber>
+						<SerialNumber>SS9988</SerialNumber>
 			</ActrosMP3>
 			<ActrosMP3>
-						<PetrolPerHour>0</PetrolPerHour>
-						<Semitrailer type="">
+						<PetrolPerHour>210,00</PetrolPerHour>
+						<Semitrailer type="ContainerShip">
+								<LoadCapacity>3000</LoadCapacity>
+								<ValueCapacity>3000</ValueCapacity>
+								<CurrentLoading>200</CurrentLoading>
+								<CurrentLoadedValue>100</CurrentLoadedValue>
+								<Products>
+									<Carpet>
+										<Material type="Textile">
+												<TextileType>
+													Wool
+												</TextileType>
+												<Price>50</Price>
+												<Color>Color [Pink]</Color>
+										</Material>
+										<FurniturePurpose>
+											Bedroom
+										</FurniturePurpose>
+										<Weight>100</Weight>
+										<Value>50</Value>
+										<Description>Very warm</Description>
+									</Carpet>
+									<Carpet>
+										<Material type="Textile">
+												<TextileType>
+													Silk
+												</TextileType>
+												<Price>50</Price>
+												<Color>Color [Purple]</Color>
+										</Material>
+										<FurniturePurpose>
+											Hall
+										</FurniturePurpose>
+										<Weight>100</Weight>
+										<Value>50</Value>
+										<Description>Very warm</Description>
+									</Carpet>
+								</Products>
 						</Semitrailer>
-						<SerialNumber>S9D8D4</SerialNumber>
+						<SerialNumber>AA6677</SerialNumber>
 			</ActrosMP3>
 		</TruckTractors>
 	</CarPark>

@@ -39,6 +39,10 @@ namespace TransportEnterprise.Models
             }
         }
         /// <summary>
+        /// Unhooks semitrailer from truck tracktor
+        /// </summary>
+        public void Unhook() => Semitrailer = null;
+        /// <summary>
         /// Checks equality of other truck tractor with current truck tractor
         /// </summary>
         public bool Equals(TruckTractor other)

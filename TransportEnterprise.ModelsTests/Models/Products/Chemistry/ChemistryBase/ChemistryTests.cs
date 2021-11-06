@@ -24,18 +24,6 @@ namespace TransportEnterprise.Models.Tests
             Assert.AreEqual(product1, product2);
             Assert.AreNotEqual(product2, product3);
         }
-
-        [TestMethod()]
-        public void EqualsWithOtherChemistryTest()
-        {
-            Chemistry product1 = new Methylamine(100, 100, new List<ChemistryDanger>() { ChemistryDanger.Flammable },
-                                new TemperatureRule(-90, 10), "Very dangerous");
-            Chemistry product2 = new PetrolA92(110, 100, new List<ChemistryDanger>() { ChemistryDanger.Flammable }, "Very dangerous");
-            Chemistry product3 = new PetrolA92(110, 100, new List<ChemistryDanger>() { ChemistryDanger.Flammable }, "Very dangerous");
-
-            Assert.AreEqual(product2, product3);
-            Assert.AreNotEqual(product1, product2);
-        }
         [TestMethod()]
         public void ToStringTest()
         {

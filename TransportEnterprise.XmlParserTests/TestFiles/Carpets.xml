@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Carpets>
+	<Carpet>
+		<Material type="Textile">
+				<TextileType>
+					Wool
+				</TextileType>
+				<Price>50</Price>
+				<Color>Color [Pink]</Color>
+		</Material>
+		<FurniturePurpose>
+			Bedroom
+		</FurniturePurpose>
+		<Weight>100</Weight>
+		<Value>50</Value>
+		<Description>Very warm</Description>
+	</Carpet>
+
+	<Carpet>
+		<Material type="Textile">
+				<TextileType>
+					Silk
+				</TextileType>
+				<Price>50</Price>
+				<Color>Color [Purple]</Color>
+		</Material>
+		<FurniturePurpose>
+			Hall
+		</FurniturePurpose>
+		<Weight>100</Weight>
+		<Value>50</Value>
+		<Description>Very warm</Description>
+	</Carpet>
+</Carpets>

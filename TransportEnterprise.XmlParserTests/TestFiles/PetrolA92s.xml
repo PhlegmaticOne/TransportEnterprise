@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Methylamines>
-	<Methylamine>
-		<TemperatureRule type="TemperatureRule">
-				<MinimalTemperature>-90</MinimalTemperature>
-				<MaximumTemperature>10</MaximumTemperature>
-		</TemperatureRule>
+<PetrolA92s>
+	<PetrolA92>
 		<ChemistryDangers>
 			<ChemistryDanger>Flammable</ChemistryDanger>
 			<ChemistryDanger>Explosive</ChemistryDanger>
@@ -12,14 +8,10 @@
 		</ChemistryDangers>
 		<Weight>10</Weight>
 		<Value>30</Value>
-		<Description>Meth</Description>
-	</Methylamine>
+		<Description>Petrol A92</Description>
+	</PetrolA92>
 
-	<Methylamine>
-		<TemperatureRule type="TemperatureRule">
-				<MinimalTemperature>-90</MinimalTemperature>
-				<MaximumTemperature>10</MaximumTemperature>
-		</TemperatureRule>
+	<PetrolA92>
 		<ChemistryDangers>
 			<ChemistryDanger>Flammable</ChemistryDanger>
 			<ChemistryDanger>Explosive</ChemistryDanger>
@@ -27,6 +19,6 @@
 		</ChemistryDangers>
 		<Weight>100</Weight>
 		<Value>20</Value>
-		<Description>Meth</Description>
-	</Methylamine>
-</Methylamines>
+		<Description>More petrol A92</Description>
+	</PetrolA92>
+</PetrolA92s>
